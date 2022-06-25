@@ -1,27 +1,51 @@
-# FemReadupSearchEngineNg
+[![Build](https://github.com/florianschwanz/fem-readup-search-engine-ng/actions/workflows/build-app-workflow.yml/badge.svg?branch=main)](https://github.com/florianschwanz/fem-readup-search-engine-ng/actions/workflows/build-app-workflow.yml)
+[![Issues](https://img.shields.io/github/issues/florianschwanz/fem-readup-search-engine-ng)](https://github.com/florianschwanz/fem-readup-search-engine-ng/issues)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
+<br />
+<p align="center">
+  <a href="https://github.com/florianschwanz/fem-readup-search-engine-ng">
+    <img src="./logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-## Development server
+  <h1 align="center">Fem Readup Search Engine</h1>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+  <p align="center">
+    Curated search engine for sports funding 
+  </p>
+</p>
 
-## Code scaffolding
+## About The Project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The aim of this app is to provide a queryable list of feminist media and events.
 
-## Build
+### Built With
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* [Angular](https://angular.io/)
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Install all packages by running
 
-## Running end-to-end tests
+```
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+You can start the app locally by running
 
-## Further help
+```
+npm run start
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Roadmap
+
+See the [open issues](https://github.com/florianschwanz/fem-readup-search-engine-ng/issues) for a list of proposed features (and
+known issues).
+
+## License
+
+Distributed under the AGPLv3 License. See [LICENSE.md](./LICENSE.md) for more information.
+
+## Contact
+
+Florian Schwanz - florian.schwanz@gmail.com
