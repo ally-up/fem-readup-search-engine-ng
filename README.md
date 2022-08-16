@@ -10,13 +10,13 @@
   <h1 align="center">Fem Readup Search Engine</h1>
 
   <p align="center">
-    Curated search engine for sports funding 
+    Curated search engine for feminist events and media
   </p>
 </p>
 
 ## About The Project
 
-The aim of this app is to provide a queryable list of feminist media and events.
+The aim of this app is to provide a queryable list of events and media related to feminism.
 
 ### Built With
 
