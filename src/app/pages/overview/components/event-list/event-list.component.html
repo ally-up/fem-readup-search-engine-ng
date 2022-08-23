@@ -1,0 +1,7 @@
+<div class="list">
+  <app-event-list-item *ngFor="let event of events"
+                         class="list-item"
+                         [event]="event"
+                         (click)="onEventClicked(event.id)">
+  </app-event-list-item>
+</div>

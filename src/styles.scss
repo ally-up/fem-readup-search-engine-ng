@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+
+@include mat.core();
+@import 'theme-fem-readup-red';
+
+
+@font-face {
+  font-family: "Rubik Moonrocks";
+  src: url(assets/fonts/RubikMoonrocks-Regular.ttf) format("truetype");
+}
+
+html {
+  height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0; /* remove scrollbar space */
+  height: 0; /* remove scrollbar space */
+  background: transparent; /* optional: just make scrollbar invisible */
+}
+
+body {
+  height: 100%;
+  color: mat.get-color-from-palette(mat.$grey-palette, 900);
+  font-family: 'Centra Book', sans-serif;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+}

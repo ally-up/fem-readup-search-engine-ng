@@ -1,0 +1,7 @@
+<app-overview-toolbar class="toolbar"></app-overview-toolbar>
+
+<div class="content-overview">
+  <app-event-list [eventsMap]="eventsMap"
+                  (eventClickedEventEmitter)="onEventClicked($event)">
+  </app-event-list>
+</div>

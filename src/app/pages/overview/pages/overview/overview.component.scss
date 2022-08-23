@@ -1,0 +1,21 @@
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+@import '../../../../../styles';
+@import '../../../../../sizes';
+
+.content-overview, .toolbar {
+  @media #{$breakpoint-small} {
+    margin: 10px;
+    padding-bottom: 20px;
+  }
+  @media #{$breakpoint-medium} {
+    margin: 20px;
+    padding-bottom: 40px;
+  }
+  @media #{$breakpoint-large} {
+    margin: 40px;
+    padding-bottom: 60px;
+  }
+}

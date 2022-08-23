@@ -1,0 +1,29 @@
+@use '~@angular/material' as mat;
+
+@import '../../../../../flex';
+@import '../../../../../styles';
+@import '../../../../../sizes';
+
+@include mat.core();
+
+::ng-deep .fem-readup-red-theme {
+
+  .title {
+    color: mat.get-color-from-palette($fem-readup-red, 400);
+    margin-left: 8px;
+  }
+}
+
+.content {
+  width: 100%;
+
+  @media #{$breakpoint-small} {
+    margin: 10px;
+  }
+  @media #{$breakpoint-medium} {
+    margin: 20px;
+  }
+  @media #{$breakpoint-large} {
+    margin: 40px;
+  }
+}
