@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "fem-readup-search-engine",
+    "public": "dist/fem-readup-search-engine-ng",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
