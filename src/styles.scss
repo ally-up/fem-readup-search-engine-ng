@@ -3,6 +3,9 @@
 @include mat.core();
 @import 'theme-fem-readup-red';
 
+.fem-read-red-theme {
+  @include mat.all-component-themes($fem-readup-red-theme);
+}
 
 @font-face {
   font-family: "Rubik Moonrocks";
@@ -29,4 +32,9 @@ body {
 
   display: flex;
   flex-direction: column;
+}
+
+::ng-deep .mat-card {
+  background: white;
+  box-shadow: 0 2px 1px -1px #0003, 0 1px 1px 0 #00000024, 0 1px 3px 0 #0000001f;
 }

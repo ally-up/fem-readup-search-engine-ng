@@ -11,6 +11,10 @@
   object-fit: cover
 }
 
-::ng-deep .funding .mat-card-actions {
+::ng-deep .event .mat-card-actions {
   margin: 0 !important;
+}
+
+.mat-card-title {
+  min-height: 100px;
 }

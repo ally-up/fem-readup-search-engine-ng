@@ -1,0 +1,10 @@
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+@import '../styles';
+@import '../sizes';
+
+.fem-readup-red-theme {
+  background: mat.get-color-from-palette(mat.$grey-palette, 50);
+}

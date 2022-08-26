@@ -364,20 +364,20 @@ export class MaterialColorService {
 
     // Fem readup red
     const femReadupRed = new MaterialPalette(PaletteType.FEM_READUP_RED);
-    femReadupRed.hues.push(new Hue(HueType._50, 'hsl(240, 100%, 100%)', '#000000'));
-    femReadupRed.hues.push(new Hue(HueType._100, 'hsl(240, 100%, 90%)', '#000000'));
-    femReadupRed.hues.push(new Hue(HueType._200, 'hsl(240, 100%, 80%)', '#000000'));
-    femReadupRed.hues.push(new Hue(HueType._300, 'hsl(240, 100%, 70%)', '#000000'));
-    femReadupRed.hues.push(new Hue(HueType._400, 'hsl(240, 100%, 60%)', '#FFFFFF'));
-    femReadupRed.hues.push(new Hue(HueType._500, 'hsl(240, 100%, 50%)', '#FFFFFF'));
-    femReadupRed.hues.push(new Hue(HueType._600, 'hsl(240, 100%, 40%)', '#FFFFFF'));
-    femReadupRed.hues.push(new Hue(HueType._700, 'hsl(240, 100%, 30%)', '#FFFFFF'));
-    femReadupRed.hues.push(new Hue(HueType._800, 'hsl(240, 100%, 20%)', '#FFFFFF'));
-    femReadupRed.hues.push(new Hue(HueType._900, 'hsl(240, 100%, 10%)', '#FFFFFF'));
-    femReadupRed.hues.push(new Hue(HueType.A100, 'hsl(240, 100%, 10%)', '#FFFFFF'));
-    femReadupRed.hues.push(new Hue(HueType.A200, 'hsl(240, 100%, 10%)', '#FFFFFF'));
-    femReadupRed.hues.push(new Hue(HueType.A400, 'hsl(240, 100%, 10%)', '#FFFFFF'));
-    femReadupRed.hues.push(new Hue(HueType.A700, 'hsl(240, 100%, 10%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType._50, 'hsl(0, 69%, 97%)', '#000000'));
+    femReadupRed.hues.push(new Hue(HueType._100, 'hsl(0, 69%, 87%)', '#000000'));
+    femReadupRed.hues.push(new Hue(HueType._200, 'hsl(0, 69%, 77%)', '#000000'));
+    femReadupRed.hues.push(new Hue(HueType._300, 'hsl(0, 69%, 67%)', '#000000'));
+    femReadupRed.hues.push(new Hue(HueType._400, 'hsl(0, 69%, 57%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType._500, 'hsl(0, 69%, 47%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType._600, 'hsl(0, 69%, 37%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType._700, 'hsl(0, 69%, 27%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType._800, 'hsl(0, 69%, 17%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType._900, 'hsl(0, 69%, 7%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType.A100, 'hsl(0, 69%, 90%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType.A200, 'hsl(0, 69%, 90%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType.A400, 'hsl(0, 69%, 90%)', '#FFFFFF'));
+    femReadupRed.hues.push(new Hue(HueType.A700, 'hsl(0, 69%, 90%)', '#FFFFFF'));
     this.palettes.push(femReadupRed);
   }
 

@@ -12,6 +12,10 @@
     color: mat.get-color-from-palette($fem-readup-red, 400);
     margin-left: 8px;
   }
+
+  .mat-toolbar {
+    background: mat.get-color-from-palette(mat.$grey-palette, 50);
+  }
 }
 
 .content {
