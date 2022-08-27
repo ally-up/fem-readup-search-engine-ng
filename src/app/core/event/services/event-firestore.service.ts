@@ -25,7 +25,7 @@ export class EventFirestoreService {
    * Fetches event items via Firebase
    */
   fetchEvents() {
-    this.firestore.collection("events").valueChanges().subscribe(documents => {
+    this.firestore.collection("event").valueChanges().subscribe(documents => {
       documents.forEach((document: any) => {
         const event = EventFirestoreService.preProcessEvent(document as Event);
 
@@ -38,7 +38,7 @@ export class EventFirestoreService {
    * Fetches event item via Firebase
    */
   fetchEvent(id: string) {
-    this.firestore.doc<Event>(`events/${id}`).valueChanges().subscribe(document => {
+    this.firestore.doc<Event>(`event/${id}`).valueChanges().subscribe(document => {
       const event = EventFirestoreService.preProcessEvent(document as Event);
 
       this.eventsSubject.next(event);
