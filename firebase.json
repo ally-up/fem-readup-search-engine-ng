@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "fem-readup-search-engine",
+    "site": "fem-readup",
     "public": "dist/fem-readup-search-engine-ng",
     "ignore": [
       "firebase.json",
