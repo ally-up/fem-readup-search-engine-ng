@@ -32,37 +32,44 @@ export class EventListItemComponent implements OnInit {
     const startDate = new Date(startValue.replace("Z", ""));
     const endDate = new Date(endValue.replace("Z", ""));
 
-    const containsMinutes = startValue.includes("T");
-    const spansMultipleDays = startDate.getDate() != endDate.getDate() || startDate.getMonth() != endDate.getMonth();
+    const containsTime = startValue.includes("T");
+    const containsMultipleDays = startDate.getDate() != endDate.getDate() || startDate.getMonth() != endDate.getMonth();
 
-    let result = startDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
-      (startDate.getDate()) + ". " +
-      startDate.toLocaleString('de-de', {month: 'short'}) + " ";
-
-    if (!spansMultipleDays) {
-      result += startDate.getFullYear() + " ";
+    // Single day with time
+    if (!containsMultipleDays && containsTime) {
+      return startDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
+        startDate.getDate() + ". " +
+        startDate.toLocaleString('de-de', {month: 'short'}) + " " +
+        startDate.getFullYear() + " " +
+        this.toTwoDigits(startDate.getHours()) + ":" + this.toTwoDigits(startDate.getMinutes()) + " - " +
+        this.toTwoDigits(endDate.getHours()) + ":" + this.toTwoDigits(endDate.getMinutes()) + " Uhr";
     }
 
-    if (containsMinutes) {
-      result += this.toTwoDigits(startDate.getHours()) + ":" + this.toTwoDigits(startDate.getMinutes());
-    }
-
-    if (containsMinutes && !spansMultipleDays) {
-      result += " - " + this.toTwoDigits(endDate.getHours()) + ":" + this.toTwoDigits(endDate.getMinutes()) + " Uhr ";
-    }
-
-    if (spansMultipleDays) {
-      result += " - " + endDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
-        (endDate.getDate()) + ". " +
+    // Multiple days with time
+    if (containsMultipleDays && containsTime) {
+      return startDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
+        startDate.getDate() + ". " +
+        startDate.toLocaleString('de-de', {month: 'short'}) + " " +
+        this.toTwoDigits(startDate.getHours()) + ":" + this.toTwoDigits(startDate.getMinutes()) + " Uhr - " +
+        endDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
+        endDate.getDate() + ". " +
         endDate.toLocaleString('de-de', {month: 'short'}) + " " +
-        endDate.getFullYear() + " ";
+        endDate.getFullYear() + " " +
+        this.toTwoDigits(endDate.getHours()) + ":" + this.toTwoDigits(endDate.getMinutes()) + " Uhr ";
     }
 
-    if (containsMinutes && spansMultipleDays) {
-      result += this.toTwoDigits(endDate.getHours()) + ":" + this.toTwoDigits(endDate.getMinutes()) + " Uhr ";
+    // Multiple days without time
+    if (containsMultipleDays && !containsTime) {
+      return startDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
+        startDate.getDate() + ". " +
+        startDate.toLocaleString('de-de', {month: 'short'}) + " - " +
+        endDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
+        endDate.getDate() + ". " +
+        endDate.toLocaleString('de-de', {month: 'short'}) + " " +
+        endDate.getFullYear();
     }
 
-    return result;
+    return "";
   }
 
   toTwoDigits(value: number) {
