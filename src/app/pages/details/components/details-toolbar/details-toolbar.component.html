@@ -7,7 +7,7 @@
     </button>
     <div class="flexbox"></div>
     <div class="project-title">
-      <span class="title">{{ title }}</span>
+      <span class="title" *ngIf="media > mediaType.SMALL">{{ title }}</span>
     </div>
     <div class="flexbox"></div>
   </div>
