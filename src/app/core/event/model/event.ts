@@ -35,4 +35,7 @@ export class Event {
   contact_phone: string = '';
   /** contact email */
   contact_mail: string = '';
+
+  /** Updated */
+  updated: string = '';
 }

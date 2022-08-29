@@ -28,7 +28,7 @@ export class EventListItemComponent implements OnInit {
   // Helpers
   //
 
-  formatDate(identifier: string, startValue: string, endValue: string) {
+  formatDate(startValue: string, endValue: string) {
     const startDate = new Date(startValue.replace("Z", ""));
     const endDate = new Date(endValue.replace("Z", ""));
 

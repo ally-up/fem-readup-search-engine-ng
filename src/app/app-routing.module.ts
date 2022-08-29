@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 const routes: Routes = [
     // Overview module
     {path: 'overview', loadChildren: () => import('./pages/overview/overview.module').then(m => m.OverviewModule)},
+    {path: 'details', loadChildren: () => import('./pages/details/details.module').then(m => m.DetailsModule)},
     {path: '', redirectTo: 'overview', pathMatch: 'full'},
     {path: '**', redirectTo: 'overview', pathMatch: 'full'},
   ]

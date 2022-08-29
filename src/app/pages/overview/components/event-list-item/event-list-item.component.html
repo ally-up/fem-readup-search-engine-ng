@@ -5,10 +5,12 @@
          [attr.src]="'https://images.unsplash.com/photo-1526631655576-dc557ddce744?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'"
          class="event-image" alt=""/>
     <div *ngIf="event.category !== undefined" class="event-category">{{event.category}}</div>
-    <mat-card-title>{{ event.title }}</mat-card-title>
-    <mat-card-subtitle>{{ event.subtitle }}</mat-card-subtitle>
+    <div class="card-header">
+      <mat-card-title>{{ event.title }}</mat-card-title>
+      <mat-card-subtitle>{{ event.subtitle }}</mat-card-subtitle>
+    </div>
     <mat-card-content>
-      <span class="start-date">{{ formatDate(event.id, event.start_date, event.end_date) }}</span>
+      <span>{{ formatDate(event.start_date, event.end_date) }}</span>
     </mat-card-content>
   </mat-card>
 </div>

@@ -15,8 +15,6 @@ import {MaterialColorService} from "./core/ui/services/material-color.service";
 })
 export class AppComponent implements OnInit {
 
-  name = "Karo";
-
   /**
    * Constructor
    * @param iconRegistry icon registry

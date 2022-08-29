@@ -19,7 +19,7 @@
 
 ::ng-deep .fem-readup-red-theme {
   .event-category {
-    color: mat.get-color-from-palette($fem-readup-red-primary, 400);
+    color: mat.get-color-from-palette($fem-readup-red-primary, 500);
     font-weight: 600;
     margin-bottom: 12px;
   }
@@ -29,6 +29,6 @@
   margin: 0 !important;
 }
 
-.mat-card-title {
-  min-height: 100px;
+.card-header {
+  min-height: 120px;
 }

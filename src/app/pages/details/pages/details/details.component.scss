@@ -1,0 +1,94 @@
+@use '../../../../../../node_modules/@angular/material/index' as mat;
+
+@import '../../../../../sizes';
+@import '../../../../../styles';
+@import '../../../../../flex';
+
+@include mat.core();
+
+.content-details {
+  @media #{$breakpoint-small} {
+    margin: 0 auto;
+    padding: 10px;
+    width: 100%;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+  }
+  @media #{$breakpoint-medium} {
+    padding: 20px;
+    margin: 0 auto;
+    width: 450px;
+  }
+  @media #{$breakpoint-large} {
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 600px;
+  }
+}
+
+::ng-deep .fem-readup-red-theme {
+  .details-button {
+    color: mat.get-contrast-color-from-palette($fem-readup-red-primary, 200);
+    background: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  }
+
+  .event-category {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 400);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+}
+
+.event-banner {
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  position: relative;
+  border-radius: 4px;
+
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+  0 1px 1px 0 rgba(0, 0, 0, 0.14),
+  0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+  width: 100%;
+  background: white;
+}
+
+::ng-deep .content-details .mat-card-image {
+  margin: 0 !important;
+}
+
+h1 {
+  margin-bottom: -4px;
+}
+
+.subtitle {
+  color: mat.get-color-from-palette(mat.$grey-palette, 700);
+}
+
+.event-basic-information, .event-tags, .event-detailed-information, .project-action {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.details {
+  margin-bottom: 8px;
+}
+
+.wrap-text {
+  white-space: normal;
+}
+
+.align-top {
+  margin-top: -4px;
+}
+
+.section-icon {
+  margin-right: 16px;
+  vertical-align: sub;
+}
+
+.updated-at {
+  margin-top: 60px;
+  color: mat.get-color-from-palette(mat.$grey-palette, 600);
+}

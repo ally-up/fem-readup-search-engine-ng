@@ -1,0 +1,30 @@
+<app-details-toolbar [title]="event.title"
+                     (menuItemEventEmitter)="onMenuItemClicked($event)">
+</app-details-toolbar>
+
+<div *ngIf="event != null" class="content-details">
+  <img *ngIf="event.image !== ''" mat-card-image class="event-banner"
+       [attr.src]="event.image">
+  <div class="event-basic-information">
+    <div *ngIf="event.category !== undefined" class="event-category">{{event.category}}</div>
+    <h1>{{ event.title }}</h1>
+    <div class="subtitle">{{ event.subtitle }}</div>
+  </div>
+
+  <div class="event-detailed-information">
+    <div class="details">{{ formatDate(event.start_date, event.end_date) }}</div>
+    <div class="details" *ngIf="event.languages != null">{{ event.languages.join(", ") }}</div>
+  </div>
+
+  <a *ngIf="event.url != null" [attr.href]="event.url" target="_blank">
+    <button mat-button class="details-button">Veranstaltungsdetails ansehen</button>
+  </a>
+
+  <div *ngIf="event.description != null" class="event-detailed-information">
+    {{ event.description }}
+  </div>
+  <div *ngIf="event.updated != null" class="event-detailed-information flexcontainer">
+    <div class="flexbox"></div>
+    <span class="updated-at">Informationen abgerufen am {{ event.updated }}</span>
+  </div>
+</div>
