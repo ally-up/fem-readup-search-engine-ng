@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MediaService} from "../../../../core/ui/services/media.service";
 import {Media} from "../../../../core/ui/model/media.enum";
 import {filter, takeUntil} from "rxjs/operators";
 import {Subject} from "rxjs";
+import {environment} from "../../../../../environments/environment";
 
 /**
  * Displays toolbar for overview page
@@ -14,6 +14,9 @@ import {Subject} from "rxjs";
   styleUrls: ['./overview-toolbar.component.scss'],
 })
 export class OverviewToolbarComponent implements OnInit, OnDestroy {
+
+  /** App subtitle */
+  appSubtitle = environment.app_subtitle;
 
   /** Enum of media types */
   public mediaType = Media;

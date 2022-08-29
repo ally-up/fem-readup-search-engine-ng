@@ -1,6 +1,7 @@
 export const environment = {
   production: false,
   app_title: "FEM READUP",
+  app_subtitle: "Veranstaltungs-Suchmaschine",
   theme: "fem-readup-red-theme",
 
   firebase: {
