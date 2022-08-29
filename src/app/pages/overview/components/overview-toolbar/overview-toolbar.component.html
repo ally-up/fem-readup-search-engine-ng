@@ -3,7 +3,15 @@
     <div style="position: relative">
       <app-logo></app-logo>
     </div>
-    <span class="title" *ngIf="media > mediaType.SMALL"> | {{ appSubtitle }}</span>
+    <span class="title" *ngIf="media > mediaType.SMALL" [@logoAnimation]="logoState"> | {{ appSubtitle }}</span>
     <div class="flexbox"></div>
+    <button mat-button class="toolbar-menu-item" (click)="onFilterClicked()">
+      <mat-icon [svgIcon]="'search'"></mat-icon>
+    </button>
+    <button mat-button class="toolbar-menu-item" [@searchResetButtonAnimation]="searchPanelState"
+            (click)="onResetFilterClicked()">
+      <span *ngIf="media > mediaType.SMALL">FILTER ZURÜCKSETZEN</span>
+      <mat-icon *ngIf="media < mediaType.MEDIUM" [svgIcon]="'filter-off-outline'"></mat-icon>
+    </button>
   </div>
 </mat-toolbar>

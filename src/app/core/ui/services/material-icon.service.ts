@@ -28,4 +28,15 @@ export class MaterialIconService {
     iconRegistry.addSvgIcon('phone', sanitizer.bypassSecurityTrustResourceUrl('assets/material-icons/phone.svg'));
     iconRegistry.addSvgIcon('email-outline', sanitizer.bypassSecurityTrustResourceUrl('assets/material-icons/email-outline.svg'));
   }
+
+  /**
+   * Retrieves icon
+   * @param value value
+   */
+  getCategoriesIcon(value: string) {
+    switch (value) {
+      default:
+        return "";
+    }
+  }
 }

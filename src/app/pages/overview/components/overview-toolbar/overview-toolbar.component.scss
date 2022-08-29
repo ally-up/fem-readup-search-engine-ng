@@ -6,6 +6,10 @@
 
 @include mat.core();
 
+.toolbar-menu-item {
+  background: mat.get-color-from-palette(mat.$grey-palette, 50);
+}
+
 ::ng-deep .fem-readup-red-theme {
 
   .title {

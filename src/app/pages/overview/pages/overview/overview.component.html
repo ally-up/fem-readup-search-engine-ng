@@ -1,7 +1,17 @@
-<app-overview-toolbar class="toolbar"></app-overview-toolbar>
+<app-overview-toolbar class="toolbar"
+                      [searchPanelState]="searchPanelState"
+                      (menuItemEventEmitter)="onMenuItemClicked($event)"></app-overview-toolbar>
+
+<div [@searchPanelAnimation]="searchPanelState">
+  <app-search-panel [categoriesValuesMap]="categoriesValuesMap"
+                    [categoriesBackgroundColor]="categoriesBackgroundColor"
+
+                    (categoriesSelectedEmitter)="onCategoriesSelected($event)">
+  </app-search-panel>
+</div>
 
 <div class="content-overview">
-  <app-event-list [eventsMap]="eventsMap"
+  <app-event-list [eventsMap]="eventsMapFiltered"
                   (eventClickedEventEmitter)="onEventClicked($event)">
   </app-event-list>
 </div>

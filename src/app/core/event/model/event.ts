@@ -22,7 +22,7 @@ export class Event {
   place = '';
 
   /** Category */
-  category: string[] = [];
+  category: string = '';
   /** Languages */
   languages: string[] = [];
   /** Fees */

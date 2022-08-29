@@ -10,6 +10,11 @@ import {EventListItemComponent} from './components/event-list-item/event-list-it
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {TagChipsModule} from "../../ui/tag-chips/tag-chips.module";
+import {SearchPanelComponent} from "./components/search-panel/search-panel.component";
+import {SearchPanelTopicsComponent} from "./components/search-panel-topics/search-panel-topics.component";
 
 @NgModule({
   declarations: [
@@ -17,14 +22,20 @@ import {MatDialogModule} from "@angular/material/dialog";
     OverviewComponent,
     OverviewToolbarComponent,
     EventListComponent,
-    EventListItemComponent
+    EventListItemComponent,
+    SearchPanelComponent,
+    SearchPanelTopicsComponent,
   ],
   imports: [
     CommonModule,
 
+    MatButtonModule,
     MatCardModule,
     MatDialogModule,
+    MatIconModule,
     MatToolbarModule,
+
+    TagChipsModule,
 
     OverviewRoutingModule
   ]

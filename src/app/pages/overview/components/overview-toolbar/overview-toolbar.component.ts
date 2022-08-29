@@ -1,9 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {MediaService} from "../../../../core/ui/services/media.service";
 import {Media} from "../../../../core/ui/model/media.enum";
 import {filter, takeUntil} from "rxjs/operators";
 import {Subject} from "rxjs";
 import {environment} from "../../../../../environments/environment";
+import {animate, state, style, transition, trigger} from "@angular/animations";
 
 /**
  * Displays toolbar for overview page
@@ -12,8 +13,43 @@ import {environment} from "../../../../../environments/environment";
   selector: 'app-overview-toolbar',
   templateUrl: './overview-toolbar.component.html',
   styleUrls: ['./overview-toolbar.component.scss'],
+  animations: [
+    trigger('searchResetButtonAnimation', [
+      state('panel-open', style({
+        opacity: '1',
+        overflow: 'hidden',
+        width: '*'
+      })),
+      state('panel-closed', style({
+        opacity: '0',
+        overflow: 'hidden',
+        width: '0px'
+      })),
+      transition('* => *', animate('250ms ease-in-out'))
+    ]),
+    trigger('logoAnimation', [
+      state('logo-open', style({
+        opacity: '1',
+        overflow: 'hidden',
+        width: '*'
+      })),
+      state('logo-closed', style({
+        opacity: '0',
+        overflow: 'hidden',
+        width: '0px'
+      })),
+      transition('* => *', animate('250ms ease-in-out'))
+    ])
+  ]
 })
 export class OverviewToolbarComponent implements OnInit, OnDestroy {
+
+  /** State of the logo */
+  @Input() logoState = "logo-open";
+  /** State of the search panel */
+  @Input() searchPanelState = "panel-closed";
+  /** Event emitter indicating menu item being clicked */
+  @Output() menuItemEventEmitter = new EventEmitter<string>();
 
   /** App subtitle */
   appSubtitle = environment.app_subtitle;
@@ -67,5 +103,23 @@ export class OverviewToolbarComponent implements OnInit, OnDestroy {
     });
 
     this.mediaService.fetchMedia();
+  }
+
+  //
+  // Actions
+  //
+
+  /**
+   * Handles click on filter button
+   */
+  onFilterClicked() {
+    this.menuItemEventEmitter.emit('filter');
+  }
+
+  /**
+   * Handles click on reset filter button
+   */
+  onResetFilterClicked() {
+    this.menuItemEventEmitter.emit('filter-reset');
   }
 }
