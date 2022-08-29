@@ -40,7 +40,7 @@ export class EventListComponent implements OnChanges {
    */
   private initializeEvents() {
     this.events = Array.from(this.eventsMap.values()).sort((a: Event, b: Event) => {
-      return new Date(a.start_date).getTime() - new Date(b.start_date).getTime();
+      return new Date(a.end_date).getTime() - new Date(b.end_date).getTime();
     });
   }
 

@@ -28,6 +28,10 @@ export class EventListItemComponent implements OnInit {
   // Helpers
   //
 
+  isInThePast(endValue: string) {
+    return new Date(endValue.replace("Z", "")) < new Date();
+  }
+
   formatDate(startValue: string, endValue: string) {
     const startDate = new Date(startValue.replace("Z", ""));
     const endDate = new Date(endValue.replace("Z", ""));

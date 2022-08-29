@@ -17,11 +17,35 @@
   object-fit: cover
 }
 
+.event-past {
+  .event-image {
+    filter: grayscale(100%);
+    opacity: 70%;
+  }
+}
+
+.event-image-label {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: -64px;
+  background: white;
+  padding: 4px 10px;
+  font-weight: 600;
+
+  background: mat.get-color-from-palette(mat.$grey-palette, 50);
+}
+
 ::ng-deep .fem-readup-red-theme {
   .event-category {
     color: mat.get-color-from-palette($fem-readup-red-primary, 500);
     font-weight: 600;
     margin-bottom: 12px;
+  }
+}
+
+.event-past {
+  .event-category {
+    color: mat.get-color-from-palette(mat.$grey-palette, 600);
   }
 }
 
