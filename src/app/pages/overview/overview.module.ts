@@ -15,6 +15,10 @@ import {MatButtonModule} from "@angular/material/button";
 import {TagChipsModule} from "../../ui/tag-chips/tag-chips.module";
 import {SearchPanelComponent} from "./components/search-panel/search-panel.component";
 import {SearchPanelTopicsComponent} from "./components/search-panel-topics/search-panel-topics.component";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -28,16 +32,21 @@ import {SearchPanelTopicsComponent} from "./components/search-panel-topics/searc
   ],
   imports: [
     CommonModule,
+    FormsModule,
 
     MatButtonModule,
     MatCardModule,
+    MatDatepickerModule,
     MatDialogModule,
     MatIconModule,
+    MatNativeDateModule,
     MatToolbarModule,
 
     TagChipsModule,
 
-    OverviewRoutingModule
+    OverviewRoutingModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ]
 })
 export class OverviewModule {

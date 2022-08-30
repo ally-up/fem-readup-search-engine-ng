@@ -28,10 +28,6 @@ export class AppComponent implements OnInit {
               private sanitizer: DomSanitizer) {
   }
 
-  onChange(value: Event) {
-    console.log(JSON.stringify(value));
-  }
-
   //
   // Lifecycle hooks
   //

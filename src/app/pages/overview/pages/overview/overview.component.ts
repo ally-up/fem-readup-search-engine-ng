@@ -46,6 +46,10 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   /** Map of categories */
   selectableCategoriesMap = new Map<string, SelectableCategory>();
+  /** Start date */
+  startDate = null;
+  /** End date */
+  endDate = null;
 
   /** Filter values for categories */
   categoriesValuesMap: Map<string, [string, boolean, boolean]> = new Map<string, [string, boolean, boolean]>();
@@ -56,7 +60,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
   public categoriesTextColor = 'black';
 
   /** State of the search panel */
-  searchPanelState = 'panel-closed';
+  searchPanelState = 'panel-opened';
 
   /** Helper subject used to finish other subscriptions */
   public unsubscribeSubject = new Subject();
@@ -157,7 +161,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
     const eventsMapFiltered = new Map<string, Event>();
 
     Array.from(eventsMap.values()).filter(event => {
-      return this.filterService.filterEvent(event, this.selectableCategoriesMap);
+      return this.filterService.filterEvent(event, this.selectableCategoriesMap, this.startDate, this.endDate);
     }).forEach(event => {
       eventsMapFiltered.set(event.id, event);
     });
@@ -186,6 +190,9 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
     // Re-instantiate to trigger change detection
     this.categoriesValuesMap = new Map(this.categoriesValuesMap);
+
+    this.startDate = null;
+    this.endDate = null;
   }
 
   //
@@ -244,6 +251,26 @@ export class OverviewComponent implements OnInit, OnDestroy {
       value.selected = event.has(value.name) && event.get(value.name)[1];
     });
 
+    this.initializeEventsFiltered(this.eventsMap);
+  }
+
+  /**
+   * Handles selection of start date
+   * @param event start date
+   */
+  onStartDateSelected(event: Date) {
+    // @ts-ignore
+    this.startDate = event;
+    this.initializeEventsFiltered(this.eventsMap);
+  }
+
+  /**
+   * Handles selection of end date
+   * @param event end date
+   */
+  onEndDateSelected(event: Date) {
+    // @ts-ignore
+    this.endDate = event;
     this.initializeEventsFiltered(this.eventsMap);
   }
 

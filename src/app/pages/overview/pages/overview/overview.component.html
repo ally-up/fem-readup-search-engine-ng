@@ -5,8 +5,9 @@
 <div [@searchPanelAnimation]="searchPanelState">
   <app-search-panel [categoriesValuesMap]="categoriesValuesMap"
                     [categoriesBackgroundColor]="categoriesBackgroundColor"
-
-                    (categoriesSelectedEmitter)="onCategoriesSelected($event)">
+                    (categoriesSelectedEmitter)="onCategoriesSelected($event)"
+                    (startDateSelectedEmitter)="onStartDateSelected($event)"
+                    (endDateSelectedEmitter)="onEndDateSelected($event)">
   </app-search-panel>
 </div>
 
