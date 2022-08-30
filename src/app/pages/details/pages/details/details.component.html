@@ -30,6 +30,6 @@
   </div>
   <div *ngIf="event.updated != null" class="event-detailed-information flexcontainer">
     <div class="flexbox"></div>
-    <span class="updated-at">Informationen abgerufen am {{ event.updated }}</span>
+    <span class="updated-at">Informationen abgerufen am {{ formatSingleDate(event.updated) }}</span>
   </div>
 </div>

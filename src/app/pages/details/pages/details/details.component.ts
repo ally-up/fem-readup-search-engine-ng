@@ -254,6 +254,24 @@ END:VEVENT
 END:VCALENDAR`
   }
 
+  /**
+   * Formats start and end date
+   * @param value value
+   */
+  formatSingleDate(value: string) {
+    const startDate = new Date(value.replace("Z", ""));
+      return startDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
+        startDate.getDate() + ". " +
+        startDate.toLocaleString('de-de', {month: 'short'}) + " " +
+        startDate.getFullYear() + " " +
+        this.toTwoDigits(startDate.getHours()) + ":" + this.toTwoDigits(startDate.getMinutes()) + " Uhr";
+  }
+
+  /**
+   * Formats start and end date
+   * @param startValue start value
+   * @param endValue end value
+   */
   formatDate(startValue: string, endValue: string) {
     const startDate = new Date(startValue.replace("Z", ""));
     const endDate = new Date(endValue.replace("Z", ""));
@@ -298,6 +316,10 @@ END:VCALENDAR`
     return "";
   }
 
+  /**
+   * Turns numeric value into tow-digit string
+   * @param value value
+   */
   toTwoDigits(value: number) {
     if (value < 10) {
       return "0" + value;

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Event} from "../../../../core/event/model/event";
 
 /**
@@ -9,29 +9,28 @@ import {Event} from "../../../../core/event/model/event";
   templateUrl: './event-list-item.component.html',
   styleUrls: ['./event-list-item.component.scss']
 })
-export class EventListItemComponent implements OnInit {
+export class EventListItemComponent {
 
   /** Event to be displayed */
   @Input() event: Event = new Event();
 
   //
-  // Lifecycle hooks
-  //
-
-  /**
-   * Handles on-init lifecycle phase
-   */
-  ngOnInit() {
-  }
-
-  //
   // Helpers
   //
 
-  isInThePast(endValue: string) {
-    return new Date(endValue.replace("Z", "")) < new Date();
+  /**
+   * Checks of date is in the past
+   * @param value
+   */
+  isInThePast(value: string) {
+    return new Date(value.replace("Z", "")) < new Date();
   }
 
+  /**
+   * Formats start and end date
+   * @param startValue start value
+   * @param endValue end value
+   */
   formatDate(startValue: string, endValue: string) {
     const startDate = new Date(startValue.replace("Z", ""));
     const endDate = new Date(endValue.replace("Z", ""));
@@ -76,6 +75,10 @@ export class EventListItemComponent implements OnInit {
     return "";
   }
 
+  /**
+   * Turns numeric value into tow-digit string
+   * @param value value
+   */
   toTwoDigits(value: number) {
     if (value < 10) {
       return "0" + value;
