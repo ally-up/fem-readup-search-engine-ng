@@ -1,8 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {filter, takeUntil} from "rxjs/operators";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MediaService} from "../../../../core/ui/services/media.service";
-import {Media} from "../../../../core/ui/model/media.enum";
 import {Subject} from "rxjs";
+import {environment} from "../../../../../environments/environment";
 
 /**
  * Displays toolbar for details page
@@ -12,17 +11,18 @@ import {Subject} from "rxjs";
   templateUrl: './details-toolbar.component.html',
   styleUrls: ['./details-toolbar.component.scss']
 })
-export class DetailsToolbarComponent implements OnInit {
+export class DetailsToolbarComponent {
 
   /** Title */
   @Input() title = '';
   /** Event emitter indicating menu item being clicked */
   @Output() menuItemEventEmitter = new EventEmitter<string>();
 
-  /** Enum of media types */
-  public mediaType = Media;
-  /** Current media */
-  public media: Media = Media.UNDEFINED;
+  /** App title */
+  appTitle = environment.app_title;
+
+  /** Navigator */
+  nav = navigator;
 
   /** Helper subject used to finish other subscriptions */
   private unsubscribeSubject = new Subject();
@@ -32,17 +32,6 @@ export class DetailsToolbarComponent implements OnInit {
    * @param mediaService media service
    */
   constructor(private mediaService: MediaService) {
-  }
-
-  //
-  // Lifecycle hooks
-  //
-
-  /**
-   * Handles on-init lifecycle phase
-   */
-  ngOnInit() {
-    this.initializeMedia();
   }
 
   //
@@ -57,16 +46,9 @@ export class DetailsToolbarComponent implements OnInit {
   }
 
   /**
-   * Initializes media
+   * Handles click on share button
    */
-  initializeMedia() {
-    this.mediaService.mediaSubject.pipe(
-      takeUntil(this.unsubscribeSubject),
-      filter(value => value != null)
-    ).subscribe(media => {
-      this.media = media;
-    });
-
-    this.mediaService.fetchMedia();
+  onShareClicked() {
+    this.menuItemEventEmitter.emit('share');
   }
 }

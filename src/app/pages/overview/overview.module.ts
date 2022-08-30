@@ -4,7 +4,6 @@ import {CommonModule} from '@angular/common';
 import {OverviewRoutingModule} from './overview-routing.module';
 import {OverviewComponent} from './pages/overview/overview.component';
 import {OverviewToolbarComponent} from './components/overview-toolbar/overview-toolbar.component';
-import {LogoComponent} from "./components/logo/logo.component";
 import {EventListComponent} from './components/event-list/event-list.component';
 import {EventListItemComponent} from './components/event-list-item/event-list-item.component';
 import {MatCardModule} from "@angular/material/card";
@@ -22,7 +21,6 @@ import {MatNativeDateModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
-    LogoComponent,
     OverviewComponent,
     OverviewToolbarComponent,
     EventListComponent,

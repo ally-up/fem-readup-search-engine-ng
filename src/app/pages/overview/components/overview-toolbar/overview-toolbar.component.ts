@@ -51,6 +51,8 @@ export class OverviewToolbarComponent implements OnInit, OnDestroy {
   /** Event emitter indicating menu item being clicked */
   @Output() menuItemEventEmitter = new EventEmitter<string>();
 
+  /** App title */
+  appTitle = environment.app_title;
   /** App subtitle */
   appSubtitle = environment.app_subtitle;
 

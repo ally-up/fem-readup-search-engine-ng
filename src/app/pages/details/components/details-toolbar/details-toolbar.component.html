@@ -6,9 +6,13 @@
       <mat-icon class="menu-icon" [svgIcon]="'arrow-left'"></mat-icon>
     </button>
     <div class="flexbox"></div>
-    <div class="project-title">
-      <span class="title" *ngIf="media > mediaType.SMALL">{{ title }}</span>
-    </div>
+    <span class="title">{{ appTitle }}</span>
     <div class="flexbox"></div>
+    <button *ngIf="nav.share"
+            mat-button
+            class="toolbar-menu-item"
+            (click)="onShareClicked()">
+      <mat-icon class="menu-icon" [svgIcon]="'share-variant'"></mat-icon>
+    </button>
   </div>
 </mat-toolbar>

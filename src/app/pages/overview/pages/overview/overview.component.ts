@@ -234,10 +234,11 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   /**
    * Handles event being clicked
-   * @param event event name
+   * @param event event id
    */
   onEventClicked(event: string) {
-    this.router.navigate([`/details/${event}`]).then(() => {});
+    this.router.navigate([`/details/${event}`]).then(() => {
+    });
   }
 
   /**

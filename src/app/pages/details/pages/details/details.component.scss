@@ -6,6 +6,21 @@
 
 @include mat.core();
 
+.content-overview, .toolbar {
+  @media #{$breakpoint-small} {
+    margin: 10px;
+    padding-bottom: 20px;
+  }
+  @media #{$breakpoint-medium} {
+    margin: 20px;
+    padding-bottom: 40px;
+  }
+  @media #{$breakpoint-large} {
+    margin: 40px;
+    padding-bottom: 60px;
+  }
+}
+
 .content-details {
   @media #{$breakpoint-small} {
     margin: 0 auto;
@@ -31,6 +46,16 @@
   .details-button {
     color: mat.get-contrast-color-from-palette($fem-readup-red-primary, 200);
     background: mat.get-color-from-palette($fem-readup-red-primary, 200);
+    margin-right: 16px;
+    margin-bottom: 8px;
+  }
+
+  .share-button {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 400);
+    border-color: mat.get-color-from-palette($fem-readup-red-primary, 400) !important;
+    border-width: 2px;
+    margin-right: 16px;
+    margin-bottom: 8px;
   }
 
   .event-category {
@@ -59,11 +84,14 @@
 }
 
 h1 {
-  margin-bottom: -4px;
+  margin-bottom: 0;
 }
 
 .subtitle {
   color: mat.get-color-from-palette(mat.$grey-palette, 700);
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 32px;
 }
 
 .event-basic-information, .event-tags, .event-detailed-information, .project-action {

@@ -1,9 +1,7 @@
 <mat-toolbar>
   <div class="content flexcontainer">
-    <div style="position: relative">
-      <app-logo></app-logo>
-    </div>
-    <span class="title" *ngIf="media > mediaType.SMALL" [@logoAnimation]="logoState"> | {{ appSubtitle }}</span>
+    <span class="title">{{ appTitle }}</span>
+    <span class="subtitle" *ngIf="media > mediaType.SMALL" [@logoAnimation]="logoState"> | {{ appSubtitle }}</span>
     <div class="flexbox"></div>
     <button mat-button class="toolbar-menu-item" (click)="onFilterClicked()">
       <mat-icon [svgIcon]="'search'"></mat-icon>

@@ -8,6 +8,7 @@ import {Event} from "../../../../core/event/model/event";
 import {MaterialIconService} from "../../../../core/ui/services/material-icon.service";
 import {ContactBottomSheetComponent} from "../../components/contact-bottom-sheet/contact-bottom-sheet.component";
 import {EventFirestoreService} from "../../../../core/event/services/event-firestore.service";
+import {environment} from "../../../../../environments/environment";
 
 /**
  * Displays details page
@@ -123,10 +124,28 @@ export class DetailsComponent implements OnInit, OnDestroy {
         });
         break;
       }
+      case 'share': {
+        if (navigator.share) {
+          navigator.share({
+            title: environment.app_title,
+            text: this.event.title,
+            url: this.router.url,
+          });
+        }
+        break;
+      }
       default: {
         break;
       }
     }
+  }
+
+  /**
+   * Handles click on details button
+   * @param event event
+   */
+  onDetailsClicked(event: Event) {
+    window.open(event.url, '_blank')
   }
 
   /**

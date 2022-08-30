@@ -1,4 +1,5 @@
-<app-details-toolbar [title]="event.title"
+<app-details-toolbar class="toolbar"
+                     [title]="event.title"
                      (menuItemEventEmitter)="onMenuItemClicked($event)">
 </app-details-toolbar>
 
@@ -16,9 +17,9 @@
     <div class="details" *ngIf="event.languages != null">{{ event.languages.join(", ") }}</div>
   </div>
 
-  <a *ngIf="event.url != null" [attr.href]="event.url" target="_blank">
-    <button mat-button class="details-button">Veranstaltungsdetails ansehen</button>
-  </a>
+  <button *ngIf="event.url != null" mat-button class="details-button" (click)="onDetailsClicked(event)">
+    Veranstaltungsdetails ansehen
+  </button>
 
   <div *ngIf="event.description != null" class="event-detailed-information">
     {{ event.description }}

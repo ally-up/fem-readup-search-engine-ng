@@ -11,8 +11,13 @@
 }
 
 ::ng-deep .fem-readup-red-theme {
-
   .title {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 300);
+    font-family: "Rubik Moonrocks", serif;
+    font-size: 2.0rem;
+  }
+
+  .subtitle {
     color: mat.get-color-from-palette($fem-readup-red, 400);
     margin: 0 0 0 8px;
   }
