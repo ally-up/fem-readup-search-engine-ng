@@ -21,6 +21,10 @@
     Veranstaltungsdetails ansehen
   </button>
 
+  <button mat-stroked-button class="share-button" (click)="onCalendarButtonClicked(event)">
+    In Kalender speichern
+  </button>
+
   <div *ngIf="event.description != null" class="event-detailed-information">
     {{ event.description }}
   </div>

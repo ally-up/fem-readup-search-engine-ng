@@ -149,6 +149,20 @@ export class DetailsComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Handles click on calendar button
+   * @param event event
+   */
+  onCalendarButtonClicked(event: Event) {
+    const filename = `${event.id}.ics`
+    const blob = new Blob([this.buildIcsFile(event)], {type: 'text/calendar'});
+    const url = window.URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.download = filename;
+    anchor.href = url;
+    anchor.click();
+  }
+
+  /**
    * Handles click on contact button
    */
   onContactClicked() {
@@ -186,6 +200,59 @@ export class DetailsComponent implements OnInit, OnDestroy {
   //
   // Helpers
   //
+
+  /**
+   * Builds ics file
+   * @param event event
+   */
+  private buildIcsFile(event: Event) {
+    return `BEGIN:VCALENDAR
+X-LOTUS-CHARSET:UTF-8
+VERSION:2.0
+PRODID:ZMS-Berlin
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+X-LIC-LOCATION:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+END:VTIMEZONE
+METHOD:REQUEST
+BEGIN:VEVENT
+UID:ics.terminsysteme.de1661901183
+DTSTAMP:${new Date().toString()
+      .replace(".000", "")
+      .replace(/-/g, "")
+      .replace(/:/g, "")
+    }
+CLASS:PUBLIC
+DTSTART;TZID=Europe/Berlin:${event.start_date.toString()
+  .replace(".000", "")
+  .replace(/-/g, "")
+  .replace(/:/g, "")
+}
+DTEND;TZID=Europe/Berlin:${event.end_date
+  .replace(".000", "")
+  .replace(/-/g, "")
+  .replace(/:/g, "")
+}
+LOCATION:${event.place != undefined ? event.place : ""}
+SUMMARY:${event.title != undefined ? event.title : ""}
+DESCRIPTION:${event.description != undefined ? event.description : ""}
+END:VEVENT
+END:VCALENDAR`
+  }
 
   formatDate(startValue: string, endValue: string) {
     const startDate = new Date(startValue.replace("Z", ""));
