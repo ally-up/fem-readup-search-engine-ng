@@ -1,6 +1,10 @@
-@import '../../../../../sizes';
-@import '../../../../../styles';
+@use '~@angular/material' as mat;
+
 @import '../../../../../flex';
+@import '../../../../../styles';
+@import '../../../../../sizes';
+
+@include mat.core();
 
 .content {
   @media #{$breakpoint-small} {
@@ -15,4 +19,19 @@
     margin-left: 60px;
     margin-right: 60px;
   }
+}
+
+.date-button {
+  margin: 8px;
+
+  color: mat.get-contrast-color-from-palette($fem-readup-red-primary, 200);
+  background: mat.get-color-from-palette($fem-readup-red-primary, 200);
+}
+
+.date-reset-button {
+  margin: 8px;
+
+  color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  border-color: mat.get-color-from-palette($fem-readup-red-primary, 200) !important;
+  border-width: 2px;
 }

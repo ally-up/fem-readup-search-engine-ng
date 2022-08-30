@@ -15,9 +15,9 @@ export class SearchPanelComponent implements OnChanges {
   /** Map of categories */
   @Input() categoriesValuesMap: Map<string, [string, boolean, boolean]> = new Map<string, [string, boolean, boolean]>();
   /** Start date */
-  @Input() startDate = null;
+  @Input() startDate: Date | null = null;
   /** End date */
-  @Input() endDate = null;
+  @Input() endDate: Date | null = null;
 
   /** Background color for goal tags */
   @Input() categoriesBackgroundColor = 'transparent';
@@ -25,9 +25,9 @@ export class SearchPanelComponent implements OnChanges {
   /** Event emitter indicating filter value being changed */
   @Output() categoriesSelectedEmitter = new EventEmitter<Map<string, [string, boolean, boolean]>>();
   /** Event emitter indicating filter value being changed */
-  @Output() startDateSelectedEmitter = new EventEmitter<Date>();
+  @Output() startDateSelectedEmitter = new EventEmitter<Date | null>();
   /** Event emitter indicating filter value being changed */
-  @Output() endDateSelectedEmitter = new EventEmitter<Date>();
+  @Output() endDateSelectedEmitter = new EventEmitter<Date | null>();
 
   /** Date picker range */
   range = new FormGroup({
@@ -46,9 +46,20 @@ export class SearchPanelComponent implements OnChanges {
    * Handles on-changes lifecycle phase
    */
   ngOnChanges(changes: SimpleChanges) {
+    this.initializeRange(this.startDate, this.endDate);
+  }
+
+  //
+  //  Initialization
+  //
+
+  /**
+   * Initializes range
+   */
+  private initializeRange(startDate: Date | null, endDate: Date | null) {
     this.range = new FormGroup({
-      start: new FormControl(this.startDate),
-      end: new FormControl(this.endDate),
+      start: new FormControl(startDate),
+      end: new FormControl(endDate),
     });
   }
 
@@ -78,5 +89,56 @@ export class SearchPanelComponent implements OnChanges {
     if (event.value != null) {
       this.endDateSelectedEmitter.emit(event.value);
     }
+  }
+
+  /**
+   * Handles click on past-events button
+   */
+  onPastEventsClicked() {
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    this.initializeRange(null, yesterday);
+    this.startDateSelectedEmitter.emit(null);
+    this.endDateSelectedEmitter.emit(yesterday);
+  }
+
+  /**
+   * Handles click on upcoming-seven-days button
+   */
+  onUpcomingSevenDaysClicked() {
+    const today = new Date();
+    const endDate = new Date(today);
+    endDate.setDate(endDate.getDate() + 7);
+
+    this.initializeRange(today, endDate);
+    this.startDateSelectedEmitter.emit(today);
+    this.endDateSelectedEmitter.emit(endDate);
+  }
+
+  /**
+   * Handles click on upcoming-thirty-days button
+   */
+  onUpcomingThirtyDaysClicked() {
+    const today = new Date();
+    const endDate = new Date(today);
+    endDate.setDate(endDate.getDate() + 31);
+
+    this.initializeRange(today, endDate)
+    this.startDateSelectedEmitter.emit(today);
+    this.endDateSelectedEmitter.emit(endDate);
+  }
+
+  /**
+   * Handles click on time-range-reset button
+   */
+  onTimeRangeResetClicked() {
+    const today = new Date();
+    const endDate = null;
+
+    this.initializeRange(today, endDate);
+    this.startDateSelectedEmitter.emit(today);
+    this.endDateSelectedEmitter.emit(endDate);
   }
 }

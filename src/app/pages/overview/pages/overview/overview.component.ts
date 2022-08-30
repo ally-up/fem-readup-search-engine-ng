@@ -47,7 +47,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
   /** Map of categories */
   selectableCategoriesMap = new Map<string, SelectableCategory>();
   /** Start date */
-  startDate = null;
+  startDate = new Date();
   /** End date */
   endDate = null;
 
@@ -191,7 +191,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
     // Re-instantiate to trigger change detection
     this.categoriesValuesMap = new Map(this.categoriesValuesMap);
 
-    this.startDate = null;
+    this.startDate = new Date();
     this.endDate = null;
   }
 
@@ -237,7 +237,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
    * @param event event name
    */
   onEventClicked(event: string) {
-    this.router.navigate([`/details/${event}`]);
+    this.router.navigate([`/details/${event}`]).then(() => {});
   }
 
   /**
@@ -258,7 +258,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
    * Handles selection of start date
    * @param event start date
    */
-  onStartDateSelected(event: Date) {
+  onStartDateSelected(event: Date | null) {
     // @ts-ignore
     this.startDate = event;
     this.initializeEventsFiltered(this.eventsMap);
@@ -268,7 +268,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
    * Handles selection of end date
    * @param event end date
    */
-  onEndDateSelected(event: Date) {
+  onEndDateSelected(event: Date | null) {
     // @ts-ignore
     this.endDate = event;
     this.initializeEventsFiltered(this.eventsMap);

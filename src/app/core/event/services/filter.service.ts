@@ -49,15 +49,15 @@ export class FilterService {
    * @param endDate end date
    */
   private checkDateMatch(event: Event, startDate: Date | null, endDate: Date | null): boolean {
-    if (startDate != null && endDate != null) {
-      const endDateIncreased = new Date(endDate);
-      endDateIncreased.setDate(endDate.getDate() + 1);
 
-      return (event.start_date == null || startDate < new Date(event.start_date.replace("Z", ""))) &&
-        (event.end_date == null || endDateIncreased > new Date(event.end_date.replace("Z", "")));
-    } else {
-      return true;
+    // Increase end date by one day to include events that are on that same day
+    if (endDate != null) {
+      endDate = new Date(endDate);
+      endDate.setDate(endDate.getDate() + 1);
     }
+
+    return (startDate == null || event.start_date == null || startDate < new Date(event.start_date.replace("Z", ""))) &&
+      (endDate == null || event.end_date == null || endDate > new Date(event.end_date.replace("Z", "")));
   }
 
   //
