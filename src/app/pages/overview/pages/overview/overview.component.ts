@@ -60,7 +60,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
   public categoriesTextColor = 'black';
 
   /** State of the search panel */
-  searchPanelState = 'panel-opened';
+  searchPanelState = 'panel-closed';
 
   /** Helper subject used to finish other subscriptions */
   public unsubscribeSubject = new Subject();
