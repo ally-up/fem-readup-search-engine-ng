@@ -14,6 +14,9 @@
 </div>
 
 <div class="content-overview">
+
+  <div class="events-count">{{ eventsMapFiltered.size }} Veranstaltungen gefunden</div>
+
   <app-event-list [eventsMap]="eventsMapFiltered"
                   (eventClickedEventEmitter)="onEventClicked($event)">
   </app-event-list>

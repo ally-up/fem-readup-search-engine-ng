@@ -19,3 +19,9 @@
     padding-bottom: 60px;
   }
 }
+
+.events-count {
+  color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+  font-weight: 600;
+  margin: 8px 8px 8px 16px;
+}
