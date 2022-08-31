@@ -213,23 +213,23 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 SUMMARY:${event.title != undefined ? event.title : ""}
-DTSTART;TZID=Europe/Berlin:${event.start_date.toString()
+DTSTART${event.start_date.toString().includes("T") ? "" : ";VALUE=DATE"}:${event.start_date.toString()
   .replace(".000", "")
   .replace(/-/g, "")
   .replace(/:/g, "")
 }
-DTEND;TZID=Europe/Berlin:${event.end_date
+DTEND${event.start_date.toString().includes("T") ? "" : ";VALUE=DATE"}:${event.end_date
   .replace(".000", "")
   .replace(/-/g, "")
   .replace(/:/g, "")
 }
-UID:${event.id != undefined ? event.id : ""}@fem-readup@web.de
-DTSTAMP:${new Date().toString()
+UID:${event.id != undefined ? event.id : ""}@fem-readup.web.app
+DTSTAMP:${event.updated
       .replace(".000", "")
       .replace(/-/g, "")
       .replace(/:/g, "")
     }
-DESCRIPTION:${event.description != undefined ? event.description : ""}
+DESCRIPTION:${event.subtitle != undefined ? event.subtitle : ""}
 LOCATION:${event.place != undefined ? event.place : ""}
 END:VEVENT
 END:VCALENDAR`
