@@ -154,7 +154,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
    */
   onCalendarButtonClicked(event: Event) {
     const filename = `${event.id}.ics`
-    const blob = new Blob([this.buildIcsFile(event)], {type: 'text/calendar'});
+    const blob = new Blob([DetailsComponent.buildIcsFile(event)], {type: 'text/calendar'});
     const url = window.URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.download = filename;
@@ -205,38 +205,14 @@ export class DetailsComponent implements OnInit, OnDestroy {
    * Builds ics file
    * @param event event
    */
-  private buildIcsFile(event: Event) {
+  private static buildIcsFile(event: Event) {
     return `BEGIN:VCALENDAR
-X-LOTUS-CHARSET:UTF-8
 VERSION:2.0
-PRODID:ZMS-Berlin
-BEGIN:VTIMEZONE
-TZID:Europe/Berlin
-X-LIC-LOCATION:Europe/Berlin
-BEGIN:DAYLIGHT
-TZOFFSETFROM:+0100
-TZOFFSETTO:+0200
-TZNAME:CEST
-DTSTART:19700329T020000
-RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
-END:DAYLIGHT
-BEGIN:STANDARD
-TZOFFSETFROM:+0200
-TZOFFSETTO:+0100
-TZNAME:CET
-DTSTART:19701025T030000
-RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
-END:STANDARD
-END:VTIMEZONE
-METHOD:REQUEST
+PRODID:-//ZContent.net//ZapCalLib 1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
 BEGIN:VEVENT
-UID:ics.terminsysteme.de1661901183
-DTSTAMP:${new Date().toString()
-      .replace(".000", "")
-      .replace(/-/g, "")
-      .replace(/:/g, "")
-    }
-CLASS:PUBLIC
+SUMMARY:${event.title != undefined ? event.title : ""}
 DTSTART;TZID=Europe/Berlin:${event.start_date.toString()
   .replace(".000", "")
   .replace(/-/g, "")
@@ -247,9 +223,14 @@ DTEND;TZID=Europe/Berlin:${event.end_date
   .replace(/-/g, "")
   .replace(/:/g, "")
 }
-LOCATION:${event.place != undefined ? event.place : ""}
-SUMMARY:${event.title != undefined ? event.title : ""}
+UID:${event.id != undefined ? event.id : ""}@fem-readup@web.de
+DTSTAMP:${new Date().toString()
+      .replace(".000", "")
+      .replace(/-/g, "")
+      .replace(/:/g, "")
+    }
 DESCRIPTION:${event.description != undefined ? event.description : ""}
+LOCATION:${event.place != undefined ? event.place : ""}
 END:VEVENT
 END:VCALENDAR`
   }
