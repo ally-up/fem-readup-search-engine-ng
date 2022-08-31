@@ -28,7 +28,7 @@
   <div *ngIf="event.description != null" class="event-detailed-information">
     {{ event.description }}
   </div>
-  <div *ngIf="event.updated != null" class="event-detailed-information flexcontainer">
+  <div *ngIf="event.updated != null && event.updated != ''" class="event-detailed-information flexcontainer">
     <div class="flexbox"></div>
     <span class="updated-at">Informationen abgerufen am {{ formatSingleDate(event.updated) }}</span>
   </div>

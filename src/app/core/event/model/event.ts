@@ -4,38 +4,38 @@
 export class Event {
 
   /** ID */
-  id: string = '';
+  id: string | null = null;
   /** Title */
-  title: string = '';
+  title: string | null = null;
   /** Subtitle */
-  subtitle: string = '';
+  subtitle: string | null = null;
   /** Description */
-  description: string = '';
+  description: string | null = null;
   /** Image */
-  image: string = '';
+  image: string | null = null;
 
   /** Start date */
-  start_date: string = '';
+  start_date: string | null = null;
   /** End date */
-  end_date: string = '';
+  end_date: string | null = null;
   /** Place */
-  place = '';
+  place: string | null = null;
 
   /** Category */
-  category: string = '';
+  category: string | null = null;
   /** Languages */
   languages: string[] = [];
   /** Fees */
   fees: number = 0;
   /** URL */
-  url = '';
+  url: string | null = null;
   /** Contact person */
-  contact_person: string = '';
+  contact_person: string | null = null;
   /** Contact phone */
-  contact_phone: string = '';
+  contact_phone: string | null = null;
   /** contact email */
-  contact_mail: string = '';
+  contact_mail: string | null = null;
 
   /** Updated */
-  updated: string = '';
+  updated: string | null = null;
 }

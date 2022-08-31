@@ -40,6 +40,10 @@ export class EventListComponent implements OnChanges {
    */
   private initializeEvents() {
     this.events = Array.from(this.eventsMap.values()).sort((a: Event, b: Event) => {
+      if (a == null || a.start_date == null || b == null || b.start_date == null) {
+        return 0;
+      }
+
       return new Date(a.start_date).getTime() - new Date(b.start_date).getTime();
     });
   }
@@ -52,7 +56,9 @@ export class EventListComponent implements OnChanges {
    * Handles click on event card
    * @param event event name
    */
-  onEventClicked(event: string) {
-    this.eventClickedEventEmitter.emit(event);
+  onEventClicked(event: string | null) {
+    if (event != null) {
+      this.eventClickedEventEmitter.emit(event);
+    }
   }
 }

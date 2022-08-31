@@ -14,7 +14,7 @@ import {environment} from "../../../../../environments/environment";
 export class DetailsToolbarComponent {
 
   /** Title */
-  @Input() title = '';
+  @Input() title: string | null = null;
   /** Event emitter indicating menu item being clicked */
   @Output() menuItemEventEmitter = new EventEmitter<string>();
 

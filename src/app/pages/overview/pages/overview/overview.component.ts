@@ -129,8 +129,10 @@ export class OverviewComponent implements OnInit, OnDestroy {
    * @param event event
    */
   private initializeEvents(event: Event) {
-    this.eventsMap.set(event.id, event);
-    this.eventsMap = new Map(this.eventsMap);
+    if (event != null && event.id != null) {
+      this.eventsMap.set(event.id, event);
+      this.eventsMap = new Map(this.eventsMap);
+    }
   }
 
   /**
@@ -163,7 +165,9 @@ export class OverviewComponent implements OnInit, OnDestroy {
     Array.from(eventsMap.values()).filter(event => {
       return this.filterService.filterEvent(event, this.selectableCategoriesMap, this.startDate, this.endDate);
     }).forEach(event => {
-      eventsMapFiltered.set(event.id, event);
+      if (event.id) {
+        eventsMapFiltered.set(event.id, event);
+      }
     });
 
     // Re-instantiate to trigger change detection

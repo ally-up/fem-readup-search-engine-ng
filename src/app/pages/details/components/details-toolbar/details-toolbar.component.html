@@ -1,12 +1,12 @@
 <mat-toolbar>
   <div class="content flexcontainer">
-    <button mat-button
+    <button mat-icon-button
             class="toolbar-menu-item"
             (click)="onBackClicked()">
       <mat-icon class="menu-icon" [svgIcon]="'arrow-left'"></mat-icon>
     </button>
     <div class="flexbox"></div>
-    <span class="title">{{ appTitle }}</span>
+    <span class="toolbar-title">{{ appTitle }}</span>
     <div class="flexbox"></div>
     <button *ngIf="nav.share"
             mat-button
@@ -14,5 +14,6 @@
             (click)="onShareClicked()">
       <mat-icon class="menu-icon" [svgIcon]="'share-variant'"></mat-icon>
     </button>
+    <div *ngIf="!nav.share" class="button-placeholder"></div>
   </div>
 </mat-toolbar>

@@ -12,7 +12,7 @@ import {Event} from "../../../../core/event/model/event";
 export class EventListItemComponent {
 
   /** Event to be displayed */
-  @Input() event: Event = new Event();
+  @Input() event: Event | null = null;
 
   //
   // Helpers
@@ -22,8 +22,8 @@ export class EventListItemComponent {
    * Checks of date is in the past
    * @param value
    */
-  isInThePast(value: string) {
-    return new Date(value.replace("Z", "")) < new Date();
+  isInThePast(value: string | null) {
+    return value != null ? new Date(value.replace("Z", "")) < new Date() : null;
   }
 
   /**
@@ -31,7 +31,11 @@ export class EventListItemComponent {
    * @param startValue start value
    * @param endValue end value
    */
-  formatDate(startValue: string, endValue: string) {
+  formatDate(startValue: string | null, endValue: string | null) {
+    if (startValue == null || endValue == null) {
+      return "";
+    }
+
     const startDate = new Date(startValue.replace("Z", ""));
     const endDate = new Date(endValue.replace("Z", ""));
 

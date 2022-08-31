@@ -96,8 +96,10 @@ export class DetailsComponent implements OnInit, OnDestroy {
    * @param event event
    */
   private initializeEvents(event: Event) {
-    this.eventsMap.set(event.id, event);
-    this.eventsMap = new Map(this.eventsMap);
+    if (event != null && event.id != null) {
+      this.eventsMap.set(event.id, event);
+      this.eventsMap = new Map(this.eventsMap);
+    }
   }
 
   /**
@@ -125,7 +127,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
         break;
       }
       case 'share': {
-        if (navigator.share) {
+        if (this.event != null && this.event.title != null) {
           navigator.share({
             title: environment.app_title,
             text: this.event.title,
@@ -145,7 +147,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
    * @param event event
    */
   onDetailsClicked(event: Event) {
-    window.open(event.url, '_blank')
+    if (event != null && event.url != null) {
+      window.open(event.url, '_blank')
+    }
   }
 
   /**
@@ -213,18 +217,18 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
 SUMMARY:${event.title != undefined ? event.title : ""}
-DTSTART${event.start_date.toString().includes("T") ? "" : ";VALUE=DATE"}:${event.start_date.toString()
-  .replace(".000", "")
-  .replace(/-/g, "")
-  .replace(/:/g, "")
-}
-DTEND${event.start_date.toString().includes("T") ? "" : ";VALUE=DATE"}:${event.end_date
-  .replace(".000", "")
-  .replace(/-/g, "")
-  .replace(/:/g, "")
-}
+DTSTART${event.start_date?.toString().includes("T") ? "" : ";VALUE=DATE"}:${event.start_date?.toString()
+      .replace(".000", "")
+      .replace(/-/g, "")
+      .replace(/:/g, "")
+    }
+DTEND${event.start_date?.toString().includes("T") ? "" : ";VALUE=DATE"}:${event.end_date?.toString()
+      .replace(".000", "")
+      .replace(/-/g, "")
+      .replace(/:/g, "")
+    }
 UID:${event.id != undefined ? event.id : ""}@fem-readup.web.app
-DTSTAMP:${event.updated
+DTSTAMP:${event.updated?.toString()
       .replace(".000", "")
       .replace(/-/g, "")
       .replace(/:/g, "")
@@ -241,11 +245,11 @@ END:VCALENDAR`
    */
   formatSingleDate(value: string) {
     const startDate = new Date(value.replace("Z", ""));
-      return startDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
-        startDate.getDate() + ". " +
-        startDate.toLocaleString('de-de', {month: 'short'}) + " " +
-        startDate.getFullYear() + " " +
-        this.toTwoDigits(startDate.getHours()) + ":" + this.toTwoDigits(startDate.getMinutes()) + " Uhr";
+    return startDate.toLocaleString('de-de', {weekday: 'long'}) + ", " +
+      startDate.getDate() + ". " +
+      startDate.toLocaleString('de-de', {month: 'short'}) + " " +
+      startDate.getFullYear() + " " +
+      this.toTwoDigits(startDate.getHours()) + ":" + this.toTwoDigits(startDate.getMinutes()) + " Uhr";
   }
 
   /**
@@ -253,7 +257,11 @@ END:VCALENDAR`
    * @param startValue start value
    * @param endValue end value
    */
-  formatDate(startValue: string, endValue: string) {
+  formatDate(startValue: string | null, endValue: string | null) {
+    if (startValue == null || endValue == null) {
+      return "";
+    }
+
     const startDate = new Date(startValue.replace("Z", ""));
     const endDate = new Date(endValue.replace("Z", ""));
 
