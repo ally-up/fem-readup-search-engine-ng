@@ -6,7 +6,7 @@
 
 @include mat.core();
 
-.content-overview, .toolbar {
+.toolbar {
   @media #{$breakpoint-small} {
     margin: 10px;
     padding-bottom: 20px;
@@ -21,8 +21,28 @@
   }
 }
 
+.content-overview {
+  @media #{$breakpoint-small} {
+    margin: 20px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+  }
+  @media #{$breakpoint-medium} {
+    margin: 0 auto;
+    padding: 20px;
+    width: 450px;
+  }
+  @media #{$breakpoint-large} {
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 600px;
+  }
+}
+
 .events-count {
   color: mat.get-color-from-palette($fem-readup-red-primary, 400);
   font-weight: 600;
-  margin: 8px 8px 8px 16px;
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
