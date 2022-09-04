@@ -13,12 +13,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Install Lighthouse CI
-        run: npm install && npm install -g @lhci/cli@0.8.x
       - name: Build
         run: |
           npm ci
           npm run build:ci
-      - name: Run Lighthouse
+      - name: Run Lighthouse CI
         run: |
+          npm install -g @lhci/cli@0.8.x
           lhci autorun
