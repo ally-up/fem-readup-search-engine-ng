@@ -1,4 +1,5 @@
 [![Build](https://github.com/florianschwanz/fem-readup-search-engine-ng/actions/workflows/build-app-workflow.yml/badge.svg?branch=main)](https://github.com/florianschwanz/fem-readup-search-engine-ng/actions/workflows/build-app-workflow.yml)
+[![CI](https://github.com/fem-readup/fem-readup-search-engine-ng/actions/workflows/ci.yml/badge.svg)](https://github.com/fem-readup/fem-readup-search-engine-ng/actions/workflows/ci.yml)
 [![Issues](https://img.shields.io/github/issues/florianschwanz/fem-readup-search-engine-ng)](https://github.com/florianschwanz/fem-readup-search-engine-ng/issues)
 
 <br />
