@@ -6,9 +6,9 @@
 
 @include mat.core();
 
-.toolbar {
+.content-overview, .toolbar {
   @media #{$breakpoint-small} {
-    margin: 10px;
+    margin: 20px;
     padding-bottom: 20px;
   }
   @media #{$breakpoint-medium} {
@@ -18,25 +18,6 @@
   @media #{$breakpoint-large} {
     margin: 40px;
     padding-bottom: 60px;
-  }
-}
-
-.content-overview {
-  @media #{$breakpoint-small} {
-    margin: 20px;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box; /* Firefox, other Gecko */
-    box-sizing: border-box; /* Opera/IE 8+ */
-  }
-  @media #{$breakpoint-medium} {
-    margin: 0 auto;
-    padding: 20px;
-    width: 450px;
-  }
-  @media #{$breakpoint-large} {
-    margin: 0 auto;
-    padding-bottom: 20px;
-    width: 600px;
   }
 }
 

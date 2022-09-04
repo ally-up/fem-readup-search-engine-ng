@@ -6,7 +6,7 @@
     <button mat-icon-button class="toolbar-menu-item" (click)="onFilterClicked()">
       <mat-icon [svgIcon]="'search'"></mat-icon>
     </button>
-    <button mat-icon-button class="toolbar-menu-item" [@searchResetButtonAnimation]="searchPanelState"
+    <button mat-button class="toolbar-menu-item" [@searchResetButtonAnimation]="searchPanelState"
             (click)="onResetFilterClicked()">
       <span *ngIf="media > mediaType.SMALL">FILTER ZURÜCKSETZEN</span>
       <mat-icon *ngIf="media < mediaType.MEDIUM" [svgIcon]="'filter-off-outline'"></mat-icon>
