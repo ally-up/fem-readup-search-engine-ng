@@ -17,11 +17,13 @@
     <div class="details" *ngIf="event.languages != null">{{ event.languages.join(", ") }}</div>
   </div>
 
-  <button *ngIf="event.url != null" mat-button class="details-button" (click)="onDetailsClicked(event)">
+  <button *ngIf="event.url != null" mat-button class="details-button" aria-label="show details"
+          (click)="onDetailsClicked(event)">
     Veranstaltungsdetails ansehen
   </button>
 
-  <button mat-stroked-button class="share-button" (click)="onCalendarButtonClicked(event)">
+  <button mat-stroked-button class="share-button" aria-label="save in calendar"
+          (click)="onCalendarButtonClicked(event)">
     In Kalender speichern
   </button>
 

@@ -3,11 +3,11 @@
     <span class="toolbar-title">{{ appTitle }}</span>
     <span class="toolbar-subtitle" *ngIf="media > mediaType.SMALL" [@logoAnimation]="logoState"> | {{ appSubtitle }}</span>
     <div class="flexbox"></div>
-    <button mat-icon-button class="toolbar-menu-item" (click)="onFilterClicked()">
+    <button mat-icon-button class="toolbar-menu-item" aria-label="filter" (click)="onFilterClicked()">
       <mat-icon [svgIcon]="'search'"></mat-icon>
     </button>
-    <button mat-button class="toolbar-menu-item" [@searchResetButtonAnimation]="searchPanelState"
-            (click)="onResetFilterClicked()">
+    <button mat-button class="toolbar-menu-item" aria-label="reset filters"
+            [@searchResetButtonAnimation]="searchPanelState" (click)="onResetFilterClicked()">
       <span *ngIf="media > mediaType.SMALL">FILTER ZURÜCKSETZEN</span>
       <mat-icon *ngIf="media < mediaType.MEDIUM" [svgIcon]="'filter-off-outline'"></mat-icon>
     </button>

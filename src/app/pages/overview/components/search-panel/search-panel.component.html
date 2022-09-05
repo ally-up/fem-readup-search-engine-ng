@@ -26,9 +26,12 @@
       <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Ungültiges Enddatum</mat-error>
     </mat-form-field>
 
-    <button mat-flat-button class="date-button" (click)="onPastEventsClicked()">vergangene Veranstaltungen</button>
-    <button mat-flat-button class="date-button" (click)="onUpcomingSevenDaysClicked()">innerhalb der nächsten 7 Tage</button>
-    <button mat-flat-button class="date-button" (click)="onUpcomingThirtyDaysClicked()">innerhalb der nächsten 30 Tage</button>
+    <button mat-flat-button class="date-button" aria-label="past events"
+            (click)="onPastEventsClicked()">vergangene Veranstaltungen</button>
+    <button mat-flat-button class="date-button" aria-label="upcoming events (7 days)"
+            (click)="onUpcomingSevenDaysClicked()">innerhalb der nächsten 7 Tage</button>
+    <button mat-flat-button class="date-button" aria-label="upcoming events 30 days"
+            (click)="onUpcomingThirtyDaysClicked()">innerhalb der nächsten 30 Tage</button>
     <button mat-stroked-button class="date-reset-button" (click)="onTimeRangeResetClicked()">Zeitraum zurücksetzen</button>
   </ng-container>
 </div>
