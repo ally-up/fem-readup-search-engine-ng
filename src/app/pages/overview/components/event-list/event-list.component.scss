@@ -10,16 +10,18 @@
 }
 
 .list-item {
-  margin-right: 24px;
-  margin-bottom: 24px;
 
-  @media #{$breakpoint-large} {
-    flex: 0 1 calc(33% - 24px);
+  @media #{$breakpoint-small} {
+    flex: 0 1 calc(100%);
   }
   @media #{$breakpoint-medium} {
     flex: 0 1 calc(50% - 24px);
+    margin-right: 24px;
+    margin-bottom: 24px;
   }
-  @media #{$breakpoint-small} {
-    flex: 0 1 calc(100%);
+  @media #{$breakpoint-large} {
+    flex: 0 1 calc(33% - 24px);
+    margin-right: 24px;
+    margin-bottom: 24px;
   }
 }
