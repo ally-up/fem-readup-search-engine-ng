@@ -7,7 +7,7 @@
 @include mat.core();
 
 .toolbar-menu-item {
-  background: mat.get-color-from-palette(mat.$grey-palette, 50);
+  background: transparent;
 }
 
 ::ng-deep .fem-readup-red-theme {
@@ -19,7 +19,15 @@
   }
 
   .mat-toolbar {
-    background: mat.get-color-from-palette(mat.$grey-palette, 50);
+    @media #{$breakpoint-small} {
+      background: white;
+    }
+    @media #{$breakpoint-medium} {
+      background: mat.get-color-from-palette(mat.$grey-palette, 50);
+    }
+    @media #{$breakpoint-large} {
+      background: mat.get-color-from-palette(mat.$grey-palette, 50);
+    }
   }
 }
 
