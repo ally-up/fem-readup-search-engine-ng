@@ -10,7 +10,10 @@
 
 @font-face {
   font-family: "Rubik Moonrocks";
+  font-style: normal;
+  font-weight: 400;
   src: url(assets/fonts/RubikMoonrocks-Regular.ttf) format("truetype");
+  font-display: swap;
 }
 
 html {
