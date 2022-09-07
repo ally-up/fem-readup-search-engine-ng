@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 
 /**
@@ -30,9 +30,9 @@ export class SearchPanelComponent implements OnChanges {
   @Output() endDateSelectedEmitter = new EventEmitter<Date | null>();
 
   /** Date picker range */
-  range = new FormGroup({
-    start: new FormControl(null),
-    end: new FormControl(null),
+  range = new UntypedFormGroup({
+    start: new UntypedFormControl(null),
+    end: new UntypedFormControl(null),
   });
 
   /** Number */
@@ -57,9 +57,9 @@ export class SearchPanelComponent implements OnChanges {
    * Initializes range
    */
   private initializeRange(startDate: Date | null, endDate: Date | null) {
-    this.range = new FormGroup({
-      start: new FormControl(startDate),
-      end: new FormControl(endDate),
+    this.range = new UntypedFormGroup({
+      start: new UntypedFormControl(startDate),
+      end: new UntypedFormControl(endDate),
     });
   }
 
