@@ -13,6 +13,8 @@ export class Event {
   description: string | null = null;
   /** Image */
   image: string | null = null;
+  /** Image from bucket */
+  image_bucket: string | null = null;
 
   /** Start date */
   start_date: string | null = null;
