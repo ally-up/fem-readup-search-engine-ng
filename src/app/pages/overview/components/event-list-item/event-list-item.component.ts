@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Event} from "../../../../core/event/model/event";
+import {environment} from "../../../../../environments/environment";
 
 /**
  * Displays event list item
@@ -15,7 +16,7 @@ export class EventListItemComponent {
   @Input() event: Event | null = null;
 
   /** Default image URL */
-  defaultImageUrl = "/assets/images/hanson-lu-RIImWnZkoog-unsplash.webp";
+  defaultImageUrl = environment.defaultImageUrl;
 
   //
   // Helpers

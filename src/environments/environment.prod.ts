@@ -1,8 +1,9 @@
 export const environment = {
   production: true,
-  app_title: "FEM READUP",
+  app_title: "FĒM READUP",
   app_subtitle: "Veranstaltungs-Suchmaschine",
   theme: "fem-readup-red-theme",
+  defaultImageUrl: "/assets/images/hanson-lu-RIImWnZkoog-unsplash.webp",
 
   firebase: {
     apiKey: "AIzaSyAlx9J9srxQKBiF3I_7P8hv23Jfm-PoPVs",

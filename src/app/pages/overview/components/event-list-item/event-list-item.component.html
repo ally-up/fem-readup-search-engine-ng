@@ -1,9 +1,9 @@
 <div class="container">
   <mat-card *ngIf="event != null" class="event" [ngClass]="isInThePast(event.end_date) ? 'event-past': ''">
-    <img *ngIf="event.image_bucket !== undefined" mat-card-image [attr.data-src]="event.image_bucket"
-         class="event-image lazyload" alt=""/>
-    <img *ngIf="event.image_bucket == undefined" mat-card-image
-         [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt=""/>
+    <!--    <img *ngIf="event.image_bucket !== undefined" mat-card-image [attr.data-src]="event.image_bucket"-->
+    <!--         class="event-image lazyload" alt=""/>-->
+    <!--    <img *ngIf="event.image_bucket == undefined" [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt=""/>-->
+    <img mat-card-image [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt=""/>
     <div *ngIf="isInThePast(event.end_date)" class="event-image-label">vorbei</div>
 
     <div *ngIf="event.category !== undefined" class="event-category">{{event.category}}</div>

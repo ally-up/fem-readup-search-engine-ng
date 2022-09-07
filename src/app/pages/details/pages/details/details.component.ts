@@ -29,6 +29,9 @@ export class DetailsComponent implements OnInit, OnDestroy {
   /** Map of events */
   eventsMap: Map<string, Event> = new Map<string, Event>();
 
+  /** Default image URL */
+  defaultImageUrl = environment.defaultImageUrl;
+
   /** Helper subject used to finish other subscriptions */
   public unsubscribeSubject = new Subject();
 
