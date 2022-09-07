@@ -14,6 +14,9 @@ export class EventListItemComponent {
   /** Event to be displayed */
   @Input() event: Event | null = null;
 
+  /** Default image URL */
+  defaultImageUrl = "/assets/images/hanson-lu-RIImWnZkoog-unsplash.webp";
+
   //
   // Helpers
   //

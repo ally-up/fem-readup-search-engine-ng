@@ -2,8 +2,7 @@
   <mat-card *ngIf="event != null" class="event" [ngClass]="isInThePast(event.end_date) ? 'event-past': ''">
     <img *ngIf="event.image !== undefined" mat-card-image [attr.src]="event.image" class="event-image" alt=""/>
     <img *ngIf="event.image == undefined" mat-card-image
-         [attr.src]="'https://images.unsplash.com/photo-1526631655576-dc557ddce744?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'"
-         class="event-image" alt=""/>
+         [attr.src]="defaultImageUrl" class="event-image" alt=""/>
     <div *ngIf="isInThePast(event.end_date)" class="event-image-label">vorbei</div>
 
     <div *ngIf="event.category !== undefined" class="event-category">{{event.category}}</div>
