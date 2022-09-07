@@ -90,7 +90,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
       takeUntil(this.unsubscribeSubject),
       filter(value => value != null)
     ).subscribe(value => {
-      this.onEventsUpdated(value as Event);
+      this.onEventsUpdated(value[0] as Event);
     });
   }
 

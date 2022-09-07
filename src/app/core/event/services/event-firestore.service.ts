@@ -12,7 +12,7 @@ import {Event} from "../model/event"
 export class EventFirestoreService {
 
   /** Events subject */
-  eventsSubject = new Subject<Event>();
+  eventsSubject = new Subject<Event[]>();
 
   /**
    * Constructor
@@ -26,11 +26,7 @@ export class EventFirestoreService {
    */
   fetchEvents() {
     this.firestore.collection("event").valueChanges().subscribe(documents => {
-      documents.forEach((document: any) => {
-        const event = EventFirestoreService.preProcessEvent(document as Event);
-
-        this.eventsSubject.next(event);
-      });
+      this.eventsSubject.next(documents as Event[]);
     });
   }
 
@@ -39,23 +35,7 @@ export class EventFirestoreService {
    */
   fetchEvent(id: string) {
     this.firestore.doc<Event>(`event/${id}`).valueChanges().subscribe(document => {
-      const event = EventFirestoreService.preProcessEvent(document as Event);
-
-      this.eventsSubject.next(event);
+      this.eventsSubject.next([document as Event]);
     });
-  }
-
-  //
-  // Helpers
-  //
-
-  /**
-   * Pre-processes event item
-   * @param event event item
-   */
-  private static preProcessEvent(event: Event): Event {
-    event.fees = +event.fees;
-
-    return event;
   }
 }

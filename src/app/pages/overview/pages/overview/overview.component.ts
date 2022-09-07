@@ -97,7 +97,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.initializeSubscriptions();
 
     this.initializeMaterialColors();
-    this.findEntities();
+    this.findAllEntities();
   }
 
   /**
@@ -120,31 +120,35 @@ export class OverviewComponent implements OnInit, OnDestroy {
       takeUntil(this.unsubscribeSubject),
       filter(value => value != null)
     ).subscribe(value => {
-      this.onEventsUpdated(value as Event);
+      this.onEventsUpdated(value as Event[]);
     });
   }
 
   /**
    * Initializes events
-   * @param event event
+   * @param events events
    */
-  private initializeEvents(event: Event) {
-    if (event != null && event.id != null) {
-      this.eventsMap.set(event.id, event);
-      this.eventsMap = new Map(this.eventsMap);
-    }
+  private initializeEvents(events: Event[]) {
+    events.forEach(event => {
+      if (event != null && event.id != null) {
+        this.eventsMap.set(event.id, event);
+        this.eventsMap = new Map(this.eventsMap);
+      }
+    });
   }
 
   /**
    * Initializes categories
-   * @param event event
+   * @param events events
    */
-  private initializeCategories(event: Event) {
-    if (event.category != null) {
-      this.selectableCategoriesMap.set(event.category, new SelectableCategory(event.category));
+  private initializeCategories(events: Event[]) {
+    events.forEach(event => {
+      if (event.category != null) {
+        this.selectableCategoriesMap.set(event.category, new SelectableCategory(event.category));
 
-      this.selectableCategoriesMap = new Map(this.selectableCategoriesMap);
-    }
+        this.selectableCategoriesMap = new Map(this.selectableCategoriesMap);
+      }
+    });
   }
 
   /**
@@ -226,11 +230,11 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   /**
    * Handles events being loaded
-   * @param event event
+   * @param events events
    */
-  onEventsUpdated(event: Event) {
-    this.initializeEvents(event);
-    this.initializeCategories(event);
+  onEventsUpdated(events: Event[]) {
+    this.initializeEvents(events);
+    this.initializeCategories(events);
 
     this.initializeFilters();
     this.initializeEventsFiltered(this.eventsMap);
@@ -285,9 +289,8 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   /**
    * Finds entities
-   * @param forceReload force reload
    */
-  private findEntities(forceReload = false) {
+  private findAllEntities() {
     this.eventFirestoreService.fetchEvents();
   }
 }
