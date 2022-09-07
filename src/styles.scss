@@ -46,3 +46,13 @@ body {
 ::ng-deep .mat-button {
   min-width: 0 !important;
 }
+
+.lazyload,
+.lazyloading {
+  opacity: 0.7;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 2000ms;
+}
