@@ -6,16 +6,13 @@ import {SelectableTagChipsComponent} from './selectable-tag-chips/selectable-tag
 import {TagChipComponent} from "./tag-chip/tag-chip.component";
 
 @NgModule({
-  imports: [TagChipsImports],
-  declarations: [TagChipsDeclarations],
-  entryComponents: [
-    TagChipsComponent
-  ],
-  exports: [
-    TagChipsComponent,
-    SelectableTagChipsComponent,
-    TagChipComponent
-  ],
+    imports: [TagChipsImports],
+    declarations: [TagChipsDeclarations],
+    exports: [
+        TagChipsComponent,
+        SelectableTagChipsComponent,
+        TagChipComponent
+    ]
 })
 export class TagChipsModule {
 }
