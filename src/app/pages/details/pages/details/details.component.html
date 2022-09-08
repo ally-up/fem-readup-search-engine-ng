@@ -7,7 +7,7 @@
   <!--  <img *ngIf="event.image_bucket !== ''" mat-card-image class="event-banner lazyload"-->
   <!--       [attr.data-src]="event.image_bucket">-->
   <!--  <img mat-card-image *ngIf="event.image_bucket == ''" class="event-banner lazyload" [attr.data-src]="defaultImageUrl">-->
-  <img mat-card-image class="event-banner lazyload" [attr.data-src]="defaultImageUrl">
+  <img mat-card-image class="event-banner lazyload" [attr.data-src]="defaultImageUrl" alt="event image">
   <div class="event-basic-information">
     <div *ngIf="event.category !== undefined" class="event-category">{{event.category}}</div>
     <h1>{{ event.title }}</h1>
