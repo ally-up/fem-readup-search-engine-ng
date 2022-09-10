@@ -25,7 +25,9 @@ export class EventFirestoreService {
    * Fetches event items via Firebase
    */
   fetchEvents() {
-    this.firestore.collection("event").valueChanges().subscribe(documents => {
+    this.firestore.collection("event", ref => ref
+      .orderBy("start_date"))
+      .valueChanges().subscribe(documents => {
       this.eventsSubject.next(documents as Event[]);
     });
   }
