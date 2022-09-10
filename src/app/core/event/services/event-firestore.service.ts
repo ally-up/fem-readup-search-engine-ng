@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Subject} from "rxjs";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Event} from "../model/event"
+import {debounceTime, distinctUntilChanged} from "rxjs/operators";
 
 /**
  * Loads events via Firebase
@@ -27,7 +28,10 @@ export class EventFirestoreService {
   fetchEvents() {
     this.firestore.collection("event", ref => ref
       .orderBy("start_date"))
-      .valueChanges().subscribe(documents => {
+      .valueChanges().pipe(
+      debounceTime(500),
+      distinctUntilChanged()
+    ).subscribe(documents => {
       this.eventsSubject.next(documents as Event[]);
     });
   }
