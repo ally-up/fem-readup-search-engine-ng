@@ -25,12 +25,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     trigger('searchPanelAnimation', [
       state('panel-open', style({
         opacity: '1',
-        overflow: 'hidden',
         height: '*'
       })),
       state('panel-closed', style({
         opacity: '0',
-        overflow: 'hidden',
         height: '0px'
       })),
       transition('* => *', animate('400ms ease-in-out'))

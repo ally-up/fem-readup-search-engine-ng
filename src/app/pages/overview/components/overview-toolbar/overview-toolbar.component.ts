@@ -17,12 +17,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     trigger('searchResetButtonAnimation', [
       state('panel-open', style({
         opacity: '1',
-        overflow: 'hidden',
         width: '*'
       })),
       state('panel-closed', style({
         opacity: '0',
-        overflow: 'hidden',
         width: '0px'
       })),
       transition('* => *', animate('250ms ease-in-out'))
@@ -30,12 +28,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     trigger('logoAnimation', [
       state('logo-open', style({
         opacity: '1',
-        overflow: 'hidden',
         width: '*'
       })),
       state('logo-closed', style({
         opacity: '0',
-        overflow: 'hidden',
         width: '0px'
       })),
       transition('* => *', animate('250ms ease-in-out'))

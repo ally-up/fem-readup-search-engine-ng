@@ -2,7 +2,7 @@
                       [searchPanelState]="searchPanelState"
                       (menuItemEventEmitter)="onMenuItemClicked($event)"></app-overview-toolbar>
 
-<div [@searchPanelAnimation]="searchPanelState">
+<div class="search-panel" [@searchPanelAnimation]="searchPanelState">
   <app-search-panel [categoriesValuesMap]="categoriesValuesMap"
                     [categoriesBackgroundColor]="categoriesBackgroundColor"
                     [startDate]="startDate"

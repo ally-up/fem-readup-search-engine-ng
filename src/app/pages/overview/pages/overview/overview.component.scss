@@ -21,6 +21,10 @@
   }
 }
 
+.search-panel {
+  overflow: hidden;
+}
+
 .events-count {
   color: mat.get-color-from-palette($fem-readup-red-primary, 400);
   font-weight: 600;
