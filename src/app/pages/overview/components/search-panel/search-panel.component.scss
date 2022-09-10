@@ -35,3 +35,24 @@
   border-color: mat.get-color-from-palette($fem-readup-red-primary, 200) !important;
   border-width: 2px;
 }
+
+::ng-deep .cdk-overlay-container {
+  .mat-calendar-body-selected {
+    background-color: mat.get-color-from-palette($fem-readup-red-primary, 400) !important;
+    color: #fff;
+  }
+
+  .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+    background-color: mat.get-color-from-palette($fem-readup-red-primary, 100) !important;
+  }
+
+  .mat-calendar-body-in-range::before {
+    background-color: mat.get-color-from-palette($fem-readup-red-primary, 50) !important;
+  }
+}
+
+::ng-deep .fem-readup-red-theme {
+  mat-datepicker-toggle.mat-datepicker-toggle-active .mat-datepicker-toggle-default-icon {
+    fill: mat.get-color-from-palette($fem-readup-red-primary, 400) !important;
+  }
+}
