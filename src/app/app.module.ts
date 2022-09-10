@@ -9,6 +9,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {ServiceWorkerModule} from "@angular/service-worker";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,8 @@ import {ServiceWorkerModule} from "@angular/service-worker";
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+
+    AngularFirestoreModule.enablePersistence(),
 
     UiModule,
 
