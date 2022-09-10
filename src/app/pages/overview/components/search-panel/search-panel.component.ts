@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 import {MatDatepickerInputEvent} from "@angular/material/datepicker";
+import {DateAdapter} from "@angular/material/core";
 
 /**
  * Displays search panel
@@ -10,7 +11,7 @@ import {MatDatepickerInputEvent} from "@angular/material/datepicker";
   templateUrl: './search-panel.component.html',
   styleUrls: ['./search-panel.component.scss']
 })
-export class SearchPanelComponent implements OnChanges {
+export class SearchPanelComponent implements OnInit, OnChanges {
 
   /** Map of categories */
   @Input() categoriesValuesMap: Map<string, [string, boolean, boolean]> = new Map<string, [string, boolean, boolean]>();
@@ -38,9 +39,23 @@ export class SearchPanelComponent implements OnChanges {
   /** Number */
   num = Number;
 
+  /**
+   * Constructor
+   * @param dateAdapter data adapter
+   */
+  constructor(private dateAdapter: DateAdapter<any>) {
+  }
+
   //
   // Lifecycle hooks
   //
+
+  /**
+   * Handles on-init lifecycle phase
+   */
+  ngOnInit() {
+    this.dateAdapter.setLocale("de");
+  }
 
   /**
    * Handles on-changes lifecycle phase
