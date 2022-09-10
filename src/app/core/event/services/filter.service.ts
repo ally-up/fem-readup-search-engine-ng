@@ -19,8 +19,8 @@ export class FilterService {
    */
   filterEvent(event: Event, selectableCategoriesMap = new Map<string, SelectableCategory>(),
               startDate: Date | null, endDate: Date | null) {
-    const matchesCategory = this.checkCategoryMatch(event, selectableCategoriesMap);
-    const matchesDate = this.checkDateMatch(event, startDate, endDate);
+    const matchesCategory = FilterService.checkCategoryMatch(event, selectableCategoriesMap);
+    const matchesDate = FilterService.checkDateMatch(event, startDate, endDate);
 
     return matchesCategory && matchesDate;
   }
@@ -30,7 +30,7 @@ export class FilterService {
    * @param event event
    * @param selectableCategoriesMap selectable categories map
    */
-  private checkCategoryMatch(event: Event, selectableCategoriesMap: Map<string, SelectableCategory>): boolean {
+  private static checkCategoryMatch(event: Event, selectableCategoriesMap: Map<string, SelectableCategory>): boolean {
     let matchesCategories = true;
 
     if (FilterService.isAnyCategorieselected(selectableCategoriesMap)) {
@@ -48,7 +48,7 @@ export class FilterService {
    * @param startDate start date
    * @param endDate end date
    */
-  private checkDateMatch(event: Event, startDate: Date | null, endDate: Date | null): boolean {
+  private static checkDateMatch(event: Event, startDate: Date | null, endDate: Date | null): boolean {
 
     // Increase end date by one day to include events that are on that same day
     if (endDate != null) {

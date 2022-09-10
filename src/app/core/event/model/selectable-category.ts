@@ -3,7 +3,7 @@
  */
 export class SelectableCategory {
   /** Whether the category is selected */
-  selected = true;
+  selected = false;
   /** Whether the category is selectable */
   disabled = false;
 

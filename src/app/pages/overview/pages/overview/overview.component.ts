@@ -184,12 +184,24 @@ export class OverviewComponent implements OnInit, OnDestroy {
    * Initializes filter
    */
   private initializeFilters() {
+    // Reset category filters
     this.selectableCategoriesMap.forEach((value: SelectableCategory, _: string) => {
       value.disabled = false;
       value.selected = false;
     });
 
-    // Transform selectable maps to value maps
+    // Reset date filters
+    this.startDate = new Date();
+    this.endDate = null;
+
+    this.updateFilters();
+  }
+
+  /**
+   * Updates filter
+   */
+  private updateFilters() {
+    // Transform selectable maps to values map
     this.selectableCategoriesMap.forEach((value: SelectableCategory, _: string) => {
       this.categoriesValuesMap.set(value.name, [
         this.materialIconService.getCategoriesIcon(value.name),
@@ -200,9 +212,6 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
     // Re-instantiate to trigger change detection
     this.categoriesValuesMap = new Map(this.categoriesValuesMap);
-
-    this.startDate = new Date();
-    this.endDate = null;
   }
 
   //
@@ -238,7 +247,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.initializeEvents(events);
     this.initializeCategories(events);
 
-    this.initializeFilters();
+    this.updateFilters();
     this.initializeEventsFiltered(this.eventsMap);
   }
 
