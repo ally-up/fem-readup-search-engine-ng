@@ -130,9 +130,10 @@ export class OverviewComponent implements OnInit, OnDestroy {
     events.forEach(event => {
       if (event != null && event.id != null) {
         this.eventsMap.set(event.id, event);
-        this.eventsMap = new Map(this.eventsMap);
       }
     });
+
+    this.eventsMap = new Map(this.eventsMap);
   }
 
   /**
@@ -142,8 +143,11 @@ export class OverviewComponent implements OnInit, OnDestroy {
   private initializeCategories(events: Event[]) {
     events.forEach(event => {
       if (event.category != null) {
-        this.selectableCategoriesMap.set(event.category, new SelectableCategory(event.category));
+        if (!this.selectableCategoriesMap.has(event.category)) {
+          this.selectableCategoriesMap.set(event.category, new SelectableCategory(event.category));
+        }
 
+        // Re-instantiate to trigger change detection
         this.selectableCategoriesMap = new Map(this.selectableCategoriesMap);
       }
     });
@@ -252,7 +256,6 @@ export class OverviewComponent implements OnInit, OnDestroy {
    * @param event map of categories
    */
   onCategoriesSelected(event: Map<string, [string, boolean, boolean]>) {
-
     this.selectableCategoriesMap.forEach((value: SelectableCategory, _: string) => {
       // @ts-ignore
       value.selected = event.has(value.name) && event.get(value.name)[1];
