@@ -55,4 +55,12 @@ export class EventListComponent implements OnChanges {
       this.eventClickedEventEmitter.emit(event);
     }
   }
+
+  //
+  // Helpers
+  //
+
+  identify(index: number, item: Event){
+    return item.id;
+  }
 }

@@ -92,7 +92,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.initializeSubscriptions();
 
     this.initializeMaterialColors();
-    this.findAllEntities();
+    this.findEntitiesAfter(new Date().toISOString());
   }
 
   /**
@@ -290,9 +290,36 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.initializeEventsFiltered(this.eventsMap);
   }
 
+  /**
+   * Handles selection of past events
+   * @param event irrelevant
+   */
+  onPastEventsSelected(event: boolean) {
+    setTimeout(() => {
+      if (this.endDate != null) {
+        // @ts-ignore
+        this.findEntitiesBefore(this.endDate.toISOString());
+      }
+    }, 500);
+  }
+
   //
   // Storage
   //
+
+  /**
+   * Finds entities
+   */
+  private findEntitiesAfter(date: string) {
+    this.eventFirestoreService.fetchEventsAfterDate(date);
+  }
+
+  /**
+   * Finds entities
+   */
+  private findEntitiesBefore(date: string) {
+    this.eventFirestoreService.fetchEventsBeforeDate(date);
+  }
 
   /**
    * Finds entities

@@ -24,6 +24,35 @@ export class EventFirestoreService {
 
   /**
    * Fetches event items via Firebase
+   * @param date date
+   */
+  fetchEventsAfterDate(date: string) {
+    this.firestore.collection("event", ref =>
+      ref
+        .where("start_date", ">", date)
+        .orderBy("start_date"))
+      .valueChanges().subscribe(documents => {
+      this.eventsSubject.next(documents as Event[]);
+    });
+  }
+
+  /**
+   * Fetches event items via Firebase
+   * @param date date
+   */
+  fetchEventsBeforeDate(date: string) {
+    this.firestore.collection("event", ref =>
+      ref
+        .where("end_date", "<", date)
+        .orderBy("end_date")
+        .orderBy("start_date"))
+      .valueChanges().subscribe(documents => {
+      this.eventsSubject.next(documents as Event[]);
+    });
+  }
+
+  /**
+   * Fetches event items via Firebase
    */
   fetchEvents() {
     this.firestore.collection("event", ref => ref

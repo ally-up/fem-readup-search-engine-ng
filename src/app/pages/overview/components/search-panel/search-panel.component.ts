@@ -29,6 +29,8 @@ export class SearchPanelComponent implements OnInit, OnChanges {
   @Output() startDateSelectedEmitter = new EventEmitter<Date | null>();
   /** Event emitter indicating filter value being changed */
   @Output() endDateSelectedEmitter = new EventEmitter<Date | null>();
+  /** Event emitter indicating past events selected */
+  @Output() pastEventsSelectedEmitter = new EventEmitter<boolean>();
 
   /** Date picker range */
   range = new UntypedFormGroup({
@@ -117,6 +119,8 @@ export class SearchPanelComponent implements OnInit, OnChanges {
     this.initializeRange(null, yesterday);
     this.startDateSelectedEmitter.emit(null);
     this.endDateSelectedEmitter.emit(yesterday);
+
+    this.pastEventsSelectedEmitter.emit(true);
   }
 
   /**
