@@ -8,7 +8,8 @@
     "build": "ng build",
     "build:ci": "npm run clean && npm run build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "explore": "source-map-explorer dist/**/*.js"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +43,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "source-map-explorer": "^2.5.2",
     "typescript": "~4.6.4"
   }
 }
