@@ -25,7 +25,8 @@
 }
 
 .event-image {
-  max-height: 200px;
+  height: 200px;
+  width: calc(100% + 32px);
   object-fit: cover
 }
 
