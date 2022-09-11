@@ -3,7 +3,6 @@ import {Subject} from 'rxjs';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
 import {filter, takeUntil} from "rxjs/operators";
 import {EventFirestoreService} from "../../../../core/event/services/event-firestore.service";
 import {Event} from "../../../../core/event/model/event"
@@ -65,7 +64,6 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   /**
    * Constructor
-   * @param dialog dialog
    * @param filterService filter service
    * @param eventFirestoreService event Firestore service
    * @param iconRegistry icon registry
@@ -74,8 +72,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
    * @param router router
    * @param sanitizer sanitizer
    */
-  constructor(private dialog: MatDialog,
-              private filterService: FilterService,
+  constructor(private filterService: FilterService,
               private eventFirestoreService: EventFirestoreService,
               private iconRegistry: MatIconRegistry,
               private materialColorService: MaterialColorService,
