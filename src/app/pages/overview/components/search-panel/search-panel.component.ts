@@ -113,12 +113,9 @@ export class SearchPanelComponent implements OnInit, OnChanges {
    */
   onPastEventsClicked() {
     const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
 
-    this.initializeRange(null, yesterday);
     this.startDateSelectedEmitter.emit(null);
-    this.endDateSelectedEmitter.emit(yesterday);
+    this.endDateSelectedEmitter.emit(today);
 
     this.pastEventsSelectedEmitter.emit(true);
   }
@@ -131,7 +128,6 @@ export class SearchPanelComponent implements OnInit, OnChanges {
     const endDate = new Date(today);
     endDate.setDate(endDate.getDate() + 7);
 
-    this.initializeRange(today, endDate);
     this.startDateSelectedEmitter.emit(today);
     this.endDateSelectedEmitter.emit(endDate);
   }
@@ -144,7 +140,6 @@ export class SearchPanelComponent implements OnInit, OnChanges {
     const endDate = new Date(today);
     endDate.setDate(endDate.getDate() + 31);
 
-    this.initializeRange(today, endDate)
     this.startDateSelectedEmitter.emit(today);
     this.endDateSelectedEmitter.emit(endDate);
   }
@@ -156,7 +151,6 @@ export class SearchPanelComponent implements OnInit, OnChanges {
     const today = new Date();
     const endDate = null;
 
-    this.initializeRange(today, endDate);
     this.startDateSelectedEmitter.emit(today);
     this.endDateSelectedEmitter.emit(endDate);
   }
