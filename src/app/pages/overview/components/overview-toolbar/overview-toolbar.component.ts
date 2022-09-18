@@ -23,6 +23,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
         opacity: '0',
         width: '0px'
       })),
+      state('*', style({
+        opacity: '0',
+        width: '0px'
+      })),
       transition('* => *', animate('250ms ease-in-out'))
     ]),
     trigger('logoAnimation', [
@@ -34,6 +38,10 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
         opacity: '0',
         width: '0px'
       })),
+      state('*', style({
+        opacity: '0',
+        width: '0px'
+      })),
       transition('* => *', animate('250ms ease-in-out'))
     ])
   ]
@@ -41,7 +49,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 export class OverviewToolbarComponent implements OnInit, OnDestroy {
 
   /** State of the logo */
-  @Input() logoState = "logo-open";
+  @Input() logoState = "logo-closed";
   /** State of the search panel */
   @Input() searchPanelState = "panel-closed";
   /** Event emitter indicating menu item being clicked */
