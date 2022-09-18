@@ -8,8 +8,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {ServiceWorkerModule} from "@angular/service-worker";
-import {getFirestore} from "@angular/fire/firestore";
-import {provideFirestore} from "@angular/fire/firestore";
+import {getFirestore} from "@angular/fire/firestore/lite";
+import {provideFirestore} from "@angular/fire/firestore/lite";
 import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {EventModule} from "./core/event/event.module";
 
