@@ -30,19 +30,19 @@ import {MatNativeDateModule} from "@angular/material/core";
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
 
     MatButtonModule,
     MatCardModule,
     MatDatepickerModule,
+    MatFormFieldModule,
     MatIconModule,
     MatNativeDateModule,
     MatToolbarModule,
 
     TagChipsModule,
 
-    OverviewRoutingModule,
-    MatFormFieldModule,
-    ReactiveFormsModule
+    OverviewRoutingModule
   ]
 })
 export class OverviewModule {

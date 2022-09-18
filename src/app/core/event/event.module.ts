@@ -7,7 +7,7 @@ import {EventFirestoreService} from "./services/event-firestore.service";
   declarations: [],
   imports: [
     CommonModule
-  ], exports: [
+  ], providers: [
     EventFirestoreService
   ]
 })

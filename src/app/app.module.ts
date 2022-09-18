@@ -6,10 +6,12 @@ import {AppRoutingModule} from "./app-routing.module";
 import {UiModule} from "./core/ui/ui.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
-import {FIREBASE_OPTIONS} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {ServiceWorkerModule} from "@angular/service-worker";
-import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {getFirestore} from "@angular/fire/firestore";
+import {provideFirestore} from "@angular/fire/firestore";
+import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
+import {EventModule} from "./core/event/event.module";
 
 @NgModule({
   declarations: [
@@ -20,8 +22,10 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
     BrowserAnimationsModule,
     HttpClientModule,
 
-    AngularFirestoreModule.enablePersistence(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
 
+    EventModule,
     UiModule,
 
     AppRoutingModule,
@@ -33,7 +37,7 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
     })
   ],
   providers: [
-    {provide: FIREBASE_OPTIONS, useValue: environment.firebase}
+    // {provide: FIREBASE_OPTIONS, useValue: environment.firebase}
   ],
   bootstrap: [AppComponent]
 })

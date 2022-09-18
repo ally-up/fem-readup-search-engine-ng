@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Subject} from "rxjs";
-import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Event} from "../model/event"
-import {debounceTime, distinctUntilChanged} from "rxjs/operators";
+import {collection, doc, DocumentData, Firestore, onSnapshot, orderBy, query, where} from "@angular/fire/firestore";
 
 /**
  * Loads events via Firebase
@@ -12,6 +11,9 @@ import {debounceTime, distinctUntilChanged} from "rxjs/operators";
 })
 export class EventFirestoreService {
 
+  /** Collection name */
+  collectionName = "event";
+
   /** Events subject */
   eventsSubject = new Subject<Event[]>();
 
@@ -19,7 +21,7 @@ export class EventFirestoreService {
    * Constructor
    * @param firestore firestore
    */
-  constructor(private firestore: AngularFirestore) {
+  constructor(private firestore: Firestore) {
   }
 
   /**
@@ -27,12 +29,15 @@ export class EventFirestoreService {
    * @param date date
    */
   fetchEventsAfterDate(date: string) {
-    this.firestore.collection("event", ref =>
-      ref
-        .where("start_date", ">", date)
-        .orderBy("start_date"))
-      .valueChanges().subscribe(documents => {
-      this.eventsSubject.next(documents as Event[]);
+    return onSnapshot(query(collection(this.firestore, this.collectionName),
+      where("start_date", ">", date),
+      orderBy("start_date")
+    ), (querySnapshot) => {
+      const events: DocumentData[] = [];
+      querySnapshot.forEach((doc) => {
+        events.push(doc.data());
+      });
+      this.eventsSubject.next(events as Event[]);
     });
   }
 
@@ -41,13 +46,16 @@ export class EventFirestoreService {
    * @param date date
    */
   fetchEventsBeforeDate(date: string) {
-    this.firestore.collection("event", ref =>
-      ref
-        .where("end_date", "<", date)
-        .orderBy("end_date")
-        .orderBy("start_date"))
-      .valueChanges().subscribe(documents => {
-      this.eventsSubject.next(documents as Event[]);
+    return onSnapshot(query(collection(this.firestore, this.collectionName),
+      where("end_date", "<", date),
+      orderBy("end_date"),
+      orderBy("start_date")
+    ), (querySnapshot) => {
+      const events: DocumentData[] = [];
+      querySnapshot.forEach((doc) => {
+        events.push(doc.data());
+      });
+      this.eventsSubject.next(events as Event[]);
     });
   }
 
@@ -55,13 +63,14 @@ export class EventFirestoreService {
    * Fetches event items via Firebase
    */
   fetchEvents() {
-    this.firestore.collection("event", ref => ref
-      .orderBy("start_date"))
-      .valueChanges().pipe(
-      debounceTime(500),
-      distinctUntilChanged()
-    ).subscribe(documents => {
-      this.eventsSubject.next(documents as Event[]);
+    return onSnapshot(query(collection(this.firestore, this.collectionName),
+      orderBy("start_date"),
+    ), (querySnapshot) => {
+      const events: DocumentData[] = [];
+      querySnapshot.forEach((doc) => {
+        events.push(doc.data());
+      });
+      this.eventsSubject.next(events as Event[]);
     });
   }
 
@@ -69,8 +78,8 @@ export class EventFirestoreService {
    * Fetches event item via Firebase
    */
   fetchEvent(id: string) {
-    this.firestore.doc<Event>(`event/${id}`).valueChanges().subscribe(document => {
-      this.eventsSubject.next([document as Event]);
+    return onSnapshot(doc(this.firestore, this.collectionName, id), (doc) => {
+      this.eventsSubject.next([doc.data() as Event]);
     });
   }
 }
