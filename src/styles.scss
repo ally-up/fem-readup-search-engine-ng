@@ -8,6 +8,14 @@
   @include mat.all-component-themes($fem-readup-red-theme);
 }
 
+@font-face {
+  font-family: "Rubik Moonrocks";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.googleapis.com/css2?family=Rubik+Moonrocks) format("truetype");
+  font-display: swap;
+}
+
 html {
   height: 100%;
   overflow: scroll;
