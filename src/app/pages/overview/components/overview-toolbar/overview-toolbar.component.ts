@@ -17,15 +17,18 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     trigger('searchResetButtonAnimation', [
       state('panel-open', style({
         opacity: '1',
-        width: '*'
+        width: '*',
+        padding: '0 16px'
       })),
       state('panel-closed', style({
         opacity: '0',
-        width: '0px'
+        width: '0',
+        padding: '0'
       })),
       state('*', style({
         opacity: '0',
-        width: '0px'
+        width: '0',
+        padding: '0'
       })),
       transition('* => *', animate('250ms ease-in-out'))
     ]),
