@@ -3,17 +3,18 @@
     <div mat-line>{{ contactPerson }}</div>
   </a>
   <a *ngIf="url != null && url !== ''" mat-list-item (click)="onUrlButtonClicked(url)">
-    <mat-icon mat-list-icon [svgIcon]="'web'"></mat-icon>
+    <mat-icon aria-hidden="false" aria-label="web" fontIcon="web"></mat-icon>
+
     <div mat-line>{{ url }}</div>
     <div mat-line>besuchen</div>
   </a>
   <a *ngIf="phone != null && phone !== ''" mat-list-item (click)="onCallButtonClicked(phone)">
-    <mat-icon mat-list-icon [svgIcon]="'phone'"></mat-icon>
+    <mat-icon aria-hidden="false" aria-label="phone" fontIcon="phone"></mat-icon>
     <div mat-line>{{ phone }}</div>
     <div mat-line>anrufen</div>
   </a>
   <a *ngIf="mail != null && mail !== ''" mat-list-item (click)="onMailButtonClicked(mail)">
-    <mat-icon mat-list-icon [svgIcon]="'email-outline'"></mat-icon>
+    <mat-icon aria-hidden="false" aria-label="email" fontIcon="email"></mat-icon>
     <div mat-line>{{ mail }}</div>
     <div mat-line>schreiben</div>
   </a>
