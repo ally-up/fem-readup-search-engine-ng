@@ -237,7 +237,7 @@ DTSTAMP:${event.updated?.toString()
       .replace(/:/g, "")
     }
 DESCRIPTION:${event.subtitle != undefined ? event.subtitle : ""}
-LOCATION:${event.place != undefined ? event.place : ""}
+LOCATION:${event.location_street != undefined ? event.location_street : ""} ${event.location_city != undefined ? event.location_city : ""}
 END:VEVENT
 END:VCALENDAR`
   }

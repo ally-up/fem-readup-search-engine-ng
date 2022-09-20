@@ -5,7 +5,6 @@
     <!--    <img *ngIf="event.image_bucket == undefined" [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt=""/>-->
     <img mat-card-image [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt="event image"/>
     <div *ngIf="isInThePast(event.end_date)" class="event-image-label">vorbei</div>
-
     <div *ngIf="event.category !== undefined" class="event-category">{{event.category}}</div>
     <div class="card-header">
       <mat-card-title *ngIf="event.title != null">{{ event.title }}</mat-card-title>
