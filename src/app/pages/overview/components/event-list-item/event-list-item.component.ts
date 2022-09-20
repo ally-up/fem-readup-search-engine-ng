@@ -23,11 +23,19 @@ export class EventListItemComponent {
   //
 
   /**
-   * Checks of date is in the past
+   * Checks if date is in the past
    * @param value
    */
   isInThePast(value: string | null) {
     return value != null ? new Date(value.replace("Z", "")) < new Date() : null;
+  }
+
+  /**
+   * Checks if language contains sign language
+   * @param languages languages
+   */
+  containsSignLanguage(languages: string[]) {
+    return languages.includes("Deutsche Gebärdensprache (DGS)");
   }
 
   /**

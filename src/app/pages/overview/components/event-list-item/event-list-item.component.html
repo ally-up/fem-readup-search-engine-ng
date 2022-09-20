@@ -5,7 +5,13 @@
     <!--    <img *ngIf="event.image_bucket == undefined" [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt=""/>-->
     <img mat-card-image [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt="event image"/>
     <div *ngIf="isInThePast(event.end_date)" class="event-image-label">vorbei</div>
-    <div *ngIf="event.category !== undefined" class="event-category">{{event.category}}</div>
+    <div *ngIf="event.category !== undefined" class="event-category">
+      <span>{{event.category}}</span>
+      <span *ngIf="containsSignLanguage(event.languages)">
+<!--          <mat-icon aria-hidden="false" aria-label="web" fontIcon="sign_language"></mat-icon>-->
+          · Deutsche Gebärdensprache
+      </span>
+    </div>
     <div class="card-header">
       <mat-card-title *ngIf="event.title != null">{{ event.title }}</mat-card-title>
       <mat-card-subtitle *ngIf="event.subtitle != null">{{ event.subtitle }}</mat-card-subtitle>
