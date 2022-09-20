@@ -30,4 +30,15 @@ export class MaterialIconService {
         return "";
     }
   }
+
+  /**
+   * Retrieves icon
+   * @param value value
+   */
+  getLanguagesIcon(value: string) {
+    switch (value) {
+      default:
+        return "";
+    }
+  }
 }

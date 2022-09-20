@@ -5,9 +5,12 @@
 <div class="search-panel" [@searchPanelAnimation]="searchPanelState">
   <app-search-panel [categoriesValuesMap]="categoriesValuesMap"
                     [categoriesBackgroundColor]="categoriesBackgroundColor"
+                    [languagesValuesMap]="languagesValuesMap"
+                    [languagesBackgroundColor]="languagesBackgroundColor"
                     [startDate]="startDate"
                     [endDate]="endDate"
                     (categoriesSelectedEmitter)="onCategoriesSelected($event)"
+                    (languagesSelectedEmitter)="onLanguagesSelected($event)"
                     (startDateSelectedEmitter)="onStartDateSelected($event)"
                     (endDateSelectedEmitter)="onEndDateSelected($event)"
                     (pastEventsSelectedEmitter)="onPastEventsSelected($event)">

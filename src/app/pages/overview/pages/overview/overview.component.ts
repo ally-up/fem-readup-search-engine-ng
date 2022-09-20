@@ -12,6 +12,7 @@ import {MaterialColorService} from "../../../../core/ui/services/material-color.
 import {MaterialIconService} from "../../../../core/ui/services/material-icon.service";
 import {HueType} from "../../../../core/ui/model/hue-type.enum";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {SelectableLanguage} from "../../../../core/event/model/selectable-language";
 
 /**
  * Displays overview page
@@ -47,6 +48,8 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   /** Map of categories */
   selectableCategoriesMap = new Map<string, SelectableCategory>();
+  /** Map of languages */
+  selectableLanguagesMap = new Map<string, SelectableLanguage>();
   /** Start date */
   startDate = new Date();
   /** End date */
@@ -54,11 +57,17 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   /** Filter values for categories */
   categoriesValuesMap: Map<string, [string, boolean, boolean]> = new Map<string, [string, boolean, boolean]>();
+  /** Filter values for languages */
+  languagesValuesMap: Map<string, [string, boolean, boolean]> = new Map<string, [string, boolean, boolean]>();
 
   /** Background color for categories */
   public categoriesBackgroundColor = 'transparent';
-  /** Text color for category */
+  /** Text color for categories */
   public categoriesTextColor = 'black';
+  /** Background color for languages */
+  public languagesBackgroundColor = 'transparent';
+  /** Text color for languages */
+  public languagesTextColor = 'black';
 
   /** State of the search panel */
   searchPanelState = 'panel-closed';
@@ -155,11 +164,36 @@ export class OverviewComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Initializes languages
+   * @param events events
+   */
+  private initializeLanguages(events: Event[]) {
+    events.forEach(event => {
+      if (event.languages != null) {
+        event.languages = event.languages.filter(language => {
+          return language.length > 0;
+        });
+
+        event.languages.forEach(language => {
+          if (!this.selectableLanguagesMap.has(language)) {
+            this.selectableLanguagesMap.set(language, new SelectableLanguage(language));
+          }
+        })
+
+        // Re-instantiate to trigger change detection
+        this.selectableLanguagesMap = new Map(this.selectableLanguagesMap);
+      }
+    });
+  }
+
+  /**
    * Initializes material colors
    */
   private initializeMaterialColors() {
     this.categoriesBackgroundColor = this.materialColorService.color(this.materialColorService.primaryPalette, HueType._200);
     this.categoriesTextColor = this.materialColorService.contrast(this.materialColorService.primaryPalette, HueType._200);
+    this.languagesBackgroundColor = this.materialColorService.color(this.materialColorService.primaryPalette, HueType._200);
+    this.languagesTextColor = this.materialColorService.contrast(this.materialColorService.primaryPalette, HueType._200);
   }
 
   /**
@@ -170,7 +204,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
     const eventsMapFiltered = new Map<string, Event>();
 
     Array.from(eventsMap.values()).filter(event => {
-      return this.filterService.filterEvent(event, this.selectableCategoriesMap, this.startDate, this.endDate);
+      return this.filterService.filterEvent(event, this.selectableCategoriesMap, this.selectableLanguagesMap, this.startDate, this.endDate);
     }).forEach(event => {
       if (event.id) {
         eventsMapFiltered.set(event.id, event);
@@ -213,6 +247,18 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
     // Re-instantiate to trigger change detection
     this.categoriesValuesMap = new Map(this.categoriesValuesMap);
+
+    // Transform selectable maps to values map
+    this.selectableLanguagesMap.forEach((value: SelectableLanguage, _: string) => {
+      this.languagesValuesMap.set(value.name, [
+        this.materialIconService.getLanguagesIcon(value.name),
+        value.disabled,
+        value.selected
+      ]);
+    });
+
+    // Re-instantiate to trigger change detection
+    this.languagesValuesMap = new Map(this.languagesValuesMap);
   }
 
   //
@@ -247,6 +293,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
   onEventsUpdated(events: Event[]) {
     this.initializeEvents(events);
     this.initializeCategories(events);
+    this.initializeLanguages(events);
 
     this.updateFilters();
     this.initializeEventsFiltered(this.eventsMap);
@@ -267,6 +314,20 @@ export class OverviewComponent implements OnInit, OnDestroy {
    */
   onCategoriesSelected(event: Map<string, [string, boolean, boolean]>) {
     this.selectableCategoriesMap.forEach((value: SelectableCategory, _: string) => {
+      // @ts-ignore
+      value.selected = event.has(value.name) && event.get(value.name)[1];
+    });
+
+    this.initializeEventsFiltered(this.eventsMap);
+  }
+
+
+  /**
+   * Handles selection of languages
+   * @param event map of languages
+   */
+  onLanguagesSelected(event: Map<string, [string, boolean, boolean]>) {
+    this.selectableLanguagesMap.forEach((value: SelectableLanguage, _: string) => {
       // @ts-ignore
       value.selected = event.has(value.name) && event.get(value.name)[1];
     });

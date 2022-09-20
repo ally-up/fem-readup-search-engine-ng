@@ -15,6 +15,8 @@ export class SearchPanelComponent implements OnInit, OnChanges {
 
   /** Map of categories */
   @Input() categoriesValuesMap: Map<string, [string, boolean, boolean]> = new Map<string, [string, boolean, boolean]>();
+  /** Map of languages */
+  @Input() languagesValuesMap: Map<string, [string, boolean, boolean]> = new Map<string, [string, boolean, boolean]>();
   /** Start date */
   @Input() startDate: Date | null = null;
   /** End date */
@@ -22,9 +24,13 @@ export class SearchPanelComponent implements OnInit, OnChanges {
 
   /** Background color for goal tags */
   @Input() categoriesBackgroundColor = 'transparent';
+  /** Background color for goal tags */
+  @Input() languagesBackgroundColor = 'transparent';
 
   /** Event emitter indicating filter value being changed */
   @Output() categoriesSelectedEmitter = new EventEmitter<Map<string, [string, boolean, boolean]>>();
+  /** Event emitter indicating filter value being changed */
+  @Output() languagesSelectedEmitter = new EventEmitter<Map<string, [string, boolean, boolean]>>();
   /** Event emitter indicating filter value being changed */
   @Output() startDateSelectedEmitter = new EventEmitter<Date | null>();
   /** Event emitter indicating filter value being changed */
@@ -86,6 +92,14 @@ export class SearchPanelComponent implements OnInit, OnChanges {
    */
   onCategoriesSelected(event: Map<string, [string, boolean, boolean]>) {
     this.categoriesSelectedEmitter.emit(event);
+  }
+
+  /**
+   * Handles selection of languages
+   * @param event map of languages
+   */
+  onLanguagesSelected(event: Map<string, [string, boolean, boolean]>) {
+    this.languagesSelectedEmitter.emit(event);
   }
 
   /**

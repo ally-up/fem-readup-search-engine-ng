@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Event} from '../model/event';
 import {SelectableCategory} from "../model/selectable-category";
+import {SelectableLanguage} from "../model/selectable-language";
 
 /**
  * Handles filtering
@@ -14,15 +15,18 @@ export class FilterService {
    * Filters a event based on a list of criteria
    * @param event event
    * @param selectableCategoriesMap selectable categories map
+   * @param selectableLanguagesMap selectable languages map
    * @param startDate start date
    * @param endDate end date
    */
   filterEvent(event: Event, selectableCategoriesMap = new Map<string, SelectableCategory>(),
+              selectableLanguagesMap = new Map<string, SelectableLanguage>(),
               startDate: Date | null, endDate: Date | null) {
     const matchesCategory = FilterService.checkCategoryMatch(event, selectableCategoriesMap);
+    const matchesLanguage = FilterService.checkLanguageMatch(event, selectableLanguagesMap);
     const matchesDate = FilterService.checkDateMatch(event, startDate, endDate);
 
-    return matchesCategory && matchesDate;
+    return matchesCategory && matchesLanguage && matchesDate;
   }
 
   /**
@@ -40,6 +44,25 @@ export class FilterService {
     }
 
     return matchesCategories;
+  }
+
+  /**
+   * Checks if the given event contains any of the languages selected in the filter
+   * @param event event
+   * @param selectableLanguagesMap selectable languages map
+   */
+  private static checkLanguageMatch(event: Event, selectableLanguagesMap: Map<string, SelectableLanguage>): boolean {
+    let matchesLanguages = true;
+
+    if (FilterService.isAnyLanguageslected(selectableLanguagesMap)) {
+      matchesLanguages = Array.from(selectableLanguagesMap.values()).some(selectableLanguage => {
+        return event.languages.some(language => {
+          return selectableLanguage.selected && selectableLanguage.name === language;
+        });
+      });
+    }
+
+    return matchesLanguages;
   }
 
   /**
@@ -71,6 +94,16 @@ export class FilterService {
   private static isAnyCategorieselected(selectableCategoriesMap: Map<string, SelectableCategory>) {
     return Array.from(selectableCategoriesMap.values()).some(category => {
       return category.selected;
+    });
+  }
+
+  /**
+   * Checks if any language filter is set
+   * @param selectableLanguagesMap selectable languages map
+   */
+  private static isAnyLanguageslected(selectableLanguagesMap: Map<string, SelectableLanguage>) {
+    return Array.from(selectableLanguagesMap.values()).some(language => {
+      return language.selected;
     });
   }
 }

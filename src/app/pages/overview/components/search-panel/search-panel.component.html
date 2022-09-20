@@ -1,10 +1,18 @@
 <div class="content">
-  <ng-container *ngIf="categoriesValuesMap.size > 0">
+  <ng-container *ngIf="categoriesValuesMap.size > 1">
     <h4>Kategorie</h4>
     <app-search-panel-topics [valuesMap]="categoriesValuesMap"
                              [border]="categoriesBackgroundColor"
                              [background]="categoriesBackgroundColor"
                              (tagsChangedEmitter)="onCategoriesSelected($event)">
+    </app-search-panel-topics>
+  </ng-container>
+  <ng-container *ngIf="languagesValuesMap.size > 1">
+    <h4>Sprache</h4>
+    <app-search-panel-topics [valuesMap]="languagesValuesMap"
+                             [border]="languagesBackgroundColor"
+                             [background]="languagesBackgroundColor"
+                             (tagsChangedEmitter)="onLanguagesSelected($event)">
     </app-search-panel-topics>
   </ng-container>
   <ng-container>
