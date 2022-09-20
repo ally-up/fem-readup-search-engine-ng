@@ -11,7 +11,8 @@
   <div class="event-basic-information">
     <div *ngIf="event.category !== undefined" class="event-category">{{event.category}}</div>
     <h1>{{ event.title }}</h1>
-    <div class="subtitle">{{ event.subtitle }}</div>
+    <div *ngIf="event.subtitle !== null" class="subtitle">{{ event.subtitle }}</div>
+    <div *ngIf="event.organizer !== null" class="organizer">{{ event.organizer }}</div>
   </div>
 
   <div class="event-detailed-information">
