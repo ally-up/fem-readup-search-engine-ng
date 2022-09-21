@@ -12,13 +12,14 @@ import {getFirestore} from "@angular/fire/firestore/lite";
 import {provideFirestore} from "@angular/fire/firestore/lite";
 import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {EventModule} from "./core/event/event.module";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
 
@@ -34,7 +35,8 @@ import {EventModule} from "./core/event/event.module";
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    RouterModule
   ],
   providers: [
     // {provide: FIREBASE_OPTIONS, useValue: environment.firebase}
