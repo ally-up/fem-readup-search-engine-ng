@@ -4,7 +4,7 @@
     <!--         class="event-image lazyload" alt=""/>-->
     <!--    <img *ngIf="event.image_bucket == undefined" [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt=""/>-->
     <img mat-card-image [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt="event image"/>
-    <div *ngIf="isInThePast(event.end_date)" class="event-image-label">vorbei</div>
+    <div *ngIf="isInThePast(event.end_date)" class="event-image-label-left">vorbei</div>
     <div *ngIf="event.category !== undefined" class="event-category">
       <span>{{event.category}}</span>
       <span *ngIf="containsSignLanguage(event.languages)">
