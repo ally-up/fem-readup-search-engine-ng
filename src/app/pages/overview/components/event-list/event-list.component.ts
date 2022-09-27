@@ -66,6 +66,11 @@ export class EventListComponent implements OnChanges {
   // Helpers
   //
 
+  /**
+   * Returns unique item identifier
+   * @param index index
+   * @param item item
+   */
   identify(index: number, item: Event){
     return item.id;
   }

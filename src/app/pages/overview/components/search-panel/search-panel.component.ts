@@ -22,9 +22,9 @@ export class SearchPanelComponent implements OnInit, OnChanges {
   /** End date */
   @Input() endDate: Date | null = null;
 
-  /** Background color for goal tags */
+  /** Background color for teams tags */
   @Input() categoriesBackgroundColor = 'transparent';
-  /** Background color for goal tags */
+  /** Background color for locations tags */
   @Input() languagesBackgroundColor = 'transparent';
 
   /** Event emitter indicating filter value being changed */
