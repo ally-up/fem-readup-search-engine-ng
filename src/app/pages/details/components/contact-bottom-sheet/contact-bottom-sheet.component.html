@@ -1,21 +1,20 @@
-<mat-nav-list>
-  <a *ngIf="contactPerson != null && contactPerson !== ''" mat-list-item>
-    <div mat-line>{{ contactPerson }}</div>
-  </a>
-  <a *ngIf="url != null && url !== ''" mat-list-item (click)="onUrlButtonClicked(url)">
-    <mat-icon aria-hidden="false" aria-label="web" fontIcon="web"></mat-icon>
+<ng-container *transloco="let t, read: 'pages.details'">
+  <mat-nav-list>
+    <a *ngIf="contactPerson != null && contactPerson !== ''" mat-list-item>
+      <div mat-line>{{ contactPerson }}</div>
+    </a>
+    <a *ngIf="url != null && url !== ''" mat-list-item (click)="onUrlButtonClicked(url)">
+      <mat-icon aria-hidden="false" aria-label="web" fontIcon="web"></mat-icon>
 
-    <div mat-line>{{ url }}</div>
-    <div mat-line>besuchen</div>
-  </a>
-  <a *ngIf="phone != null && phone !== ''" mat-list-item (click)="onCallButtonClicked(phone)">
-    <mat-icon aria-hidden="false" aria-label="phone" fontIcon="phone"></mat-icon>
-    <div mat-line>{{ phone }}</div>
-    <div mat-line>anrufen</div>
-  </a>
-  <a *ngIf="mail != null && mail !== ''" mat-list-item (click)="onMailButtonClicked(mail)">
-    <mat-icon aria-hidden="false" aria-label="email" fontIcon="email"></mat-icon>
-    <div mat-line>{{ mail }}</div>
-    <div mat-line>schreiben</div>
-  </a>
-</mat-nav-list>
+      <div mat-line>{{ t("visit-url", {url: url}) }}</div>
+    </a>
+    <a *ngIf="phone != null && phone !== ''" mat-list-item (click)="onCallButtonClicked(phone)">
+      <mat-icon aria-hidden="false" aria-label="phone" fontIcon="phone"></mat-icon>
+      <div mat-line>{{ t("call-phone", {phone: phone}) }}</div>
+    </a>
+    <a *ngIf="mail != null && mail !== ''" mat-list-item (click)="onMailButtonClicked(mail)">
+      <mat-icon aria-hidden="false" aria-label="email" fontIcon="email"></mat-icon>
+      <div mat-line>{{ t("write-mail", {mail: mail}) }}</div>
+    </a>
+  </mat-nav-list>
+</ng-container>

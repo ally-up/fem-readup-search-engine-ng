@@ -1,0 +1,36 @@
+{
+  "app-title": "FEM READUP",
+  "pages": {
+    "overview": {
+      "menu": {
+        "reset-filter": "Filter zurücksetzen"
+      },
+      "search": {
+        "category": "Kategorie",
+        "language": "Sprache",
+        "time-period": "Zeitraum",
+        "select-time-period": "Gib einen Zeitraum an",
+        "invalid-start-date": "Ungültiges Startdatum",
+        "invalid-end-date": "Ungültiges Enddatum",
+        "past-events": "vergangene Veranstaltungen",
+        "within-7-days": "innerhalb der nächsten 7 Tage",
+        "within-30-days": "innerhalb der nächsten 30 Tage",
+        "reset-time-period": "innerhalb der nächsten 30 Tage"
+      },
+      "terms": {
+        "events": "{count, plural, =0 {keine Veranstaltungen} one {1 Veranstaltung} other {# Veranstaltungen}}",
+        "german-sign-language": "Deutsche Gebärdensprache"
+      }
+    },
+    "details": {
+      "actions": {
+        "show-event-details": "Veranstaltungsdetails ansehen",
+        "save-in-calendar": "in Kalendar speichern",
+        "information-retrieved-on": "Informationen abgerufen am",
+        "visit-url": "{url} besuchen",
+        "call-phone": "{phone} anrufen",
+        "visit-mail": "{mail} screiben"
+      }
+    }
+  }
+}

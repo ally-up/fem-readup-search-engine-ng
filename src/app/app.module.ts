@@ -12,6 +12,10 @@ import {getFirestore} from "@angular/fire/firestore/lite";
 import {provideFirestore} from "@angular/fire/firestore/lite";
 import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {EventModule} from "./core/event/event.module";
+import {TRANSLOCO_CONFIG, TRANSLOCO_MISSING_HANDLER, TranslocoConfig, TranslocoModule} from "@ngneat/transloco";
+import {TranslocoUndefMissingHandler} from "./transloco-missing-handler";
+import {translocoLoader} from "./transloco.loader";
+import {TranslocoMessageFormatModule} from "@ngneat/transloco-messageformat";
 
 @NgModule({
   declarations: [
@@ -34,10 +38,27 @@ import {EventModule} from "./core/event/event.module";
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+
+    TranslocoModule,
+    TranslocoMessageFormatModule.forRoot()
   ],
   providers: [
-    // {provide: FIREBASE_OPTIONS, useValue: environment.firebase}
+    {
+      provide: TRANSLOCO_CONFIG,
+      useValue: {
+        availableLangs: ['de'],
+        listenToLangChange: false,
+        defaultLang: 'de',
+        fallbackLang: ['de'],
+        prodMode: environment.production
+      } as TranslocoConfig
+    },
+    {
+      provide: TRANSLOCO_MISSING_HANDLER,
+      useClass: TranslocoUndefMissingHandler
+    },
+    translocoLoader
   ],
   bootstrap: [AppComponent]
 })

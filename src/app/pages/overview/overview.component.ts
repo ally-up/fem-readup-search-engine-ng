@@ -4,15 +4,15 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import {filter, takeUntil} from "rxjs/operators";
-import {EventFirestoreService} from "../../../../core/event/services/event-firestore.service";
-import {Event} from "../../../../core/event/model/event"
-import {FilterService} from "../../../../core/event/services/filter.service";
-import {SelectableCategory} from "../../../../core/event/model/selectable-category";
-import {MaterialColorService} from "../../../../core/ui/services/material-color.service";
-import {MaterialIconService} from "../../../../core/ui/services/material-icon.service";
-import {HueType} from "../../../../core/ui/model/hue-type.enum";
+import {EventFirestoreService} from "../../core/event/services/event-firestore.service";
+import {Event} from "../../core/event/model/event"
+import {FilterService} from "../../core/event/services/filter.service";
+import {SelectableCategory} from "../../core/event/model/selectable-category";
+import {MaterialColorService} from "../../core/ui/services/material-color.service";
+import {MaterialIconService} from "../../core/ui/services/material-icon.service";
+import {HueType} from "../../core/ui/model/hue-type.enum";
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import {SelectableLanguage} from "../../../../core/event/model/selectable-language";
+import {SelectableLanguage} from "../../core/event/model/selectable-language";
 
 /**
  * Displays overview page

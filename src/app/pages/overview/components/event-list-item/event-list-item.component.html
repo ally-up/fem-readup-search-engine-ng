@@ -1,23 +1,25 @@
-<div class="container">
-  <mat-card *ngIf="event != null" class="event" [ngClass]="isInThePast(event.end_date) ? 'event-past': ''">
-    <!--    <img *ngIf="event.image_bucket !== undefined" mat-card-image [attr.data-src]="event.image_bucket"-->
-    <!--         class="event-image lazyload" alt=""/>-->
-    <!--    <img *ngIf="event.image_bucket == undefined" [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt=""/>-->
-    <img mat-card-image [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt="event image"/>
-    <div *ngIf="isInThePast(event.end_date)" class="event-image-label-left">vorbei</div>
-    <div *ngIf="event.category !== undefined" class="event-category">
-      <span>{{event.category}}</span>
-      <span *ngIf="containsSignLanguage(event.languages)">
+<ng-container *transloco="let t, read: 'pages.overview'">
+  <div class="container">
+    <mat-card *ngIf="event != null" class="event" [ngClass]="isInThePast(event.end_date) ? 'event-past': ''">
+      <!--    <img *ngIf="event.image_bucket !== undefined" mat-card-image [attr.data-src]="event.image_bucket"-->
+      <!--         class="event-image lazyload" alt=""/>-->
+      <!--    <img *ngIf="event.image_bucket == undefined" [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt=""/>-->
+      <img mat-card-image [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt="event image"/>
+      <div *ngIf="isInThePast(event.end_date)" class="event-image-label-left">vorbei</div>
+      <div *ngIf="event.category !== undefined" class="event-category">
+        <span>{{event.category}}</span>
+        <span *ngIf="containsSignLanguage(event.languages)">
 <!--          <mat-icon aria-hidden="false" aria-label="web" fontIcon="sign_language"></mat-icon>-->
-          · Deutsche Gebärdensprache
+          · {{ t("terms.german-sign-language") }}
       </span>
-    </div>
-    <div class="card-header">
-      <mat-card-title *ngIf="event.title != null">{{ event.title }}</mat-card-title>
-      <mat-card-subtitle *ngIf="event.subtitle != null">{{ event.subtitle }}</mat-card-subtitle>
-    </div>
-    <mat-card-content>
-      <span>{{ formatDate(event.start_date, event.end_date) }}</span>
-    </mat-card-content>
-  </mat-card>
-</div>
+      </div>
+      <div class="card-header">
+        <mat-card-title *ngIf="event.title != null">{{ event.title }}</mat-card-title>
+        <mat-card-subtitle *ngIf="event.subtitle != null">{{ event.subtitle }}</mat-card-subtitle>
+      </div>
+      <mat-card-content>
+        <span>{{ formatDate(event.start_date, event.end_date) }}</span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-container>

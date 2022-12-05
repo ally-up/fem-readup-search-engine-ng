@@ -2,13 +2,13 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
-import {MaterialColorService} from '../../../../core/ui/services/material-color.service';
+import {MaterialColorService} from '../../core/ui/services/material-color.service';
 import {MatBottomSheet} from '@angular/material/bottom-sheet';
-import {Event} from "../../../../core/event/model/event";
-import {MaterialIconService} from "../../../../core/ui/services/material-icon.service";
-import {ContactBottomSheetComponent} from "../../components/contact-bottom-sheet/contact-bottom-sheet.component";
-import {EventFirestoreService} from "../../../../core/event/services/event-firestore.service";
-import {environment} from "../../../../../environments/environment";
+import {Event} from "../../core/event/model/event";
+import {MaterialIconService} from "../../core/ui/services/material-icon.service";
+import {ContactBottomSheetComponent} from "./components/contact-bottom-sheet/contact-bottom-sheet.component";
+import {EventFirestoreService} from "../../core/event/services/event-firestore.service";
+import {environment} from "../../../environments/environment";
 
 /**
  * Displays details page

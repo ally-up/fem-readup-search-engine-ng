@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {DetailsComponent} from './pages/details/details.component';
+import {DetailsComponent} from './details.component';
 
 /* List of available routes */
 const routes: Routes = [

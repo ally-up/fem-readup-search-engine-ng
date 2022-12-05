@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {OverviewRoutingModule} from './overview-routing.module';
-import {OverviewComponent} from './pages/overview/overview.component';
+import {OverviewComponent} from './overview.component';
 import {OverviewToolbarComponent} from './components/overview-toolbar/overview-toolbar.component';
 import {EventListComponent} from './components/event-list/event-list.component';
 import {EventListItemComponent} from './components/event-list-item/event-list-item.component';
@@ -17,6 +17,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatNativeDateModule} from "@angular/material/core";
+import {TranslocoModule} from "@ngneat/transloco";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import {MatNativeDateModule} from "@angular/material/core";
 
     TagChipsModule,
 
-    OverviewRoutingModule
+    OverviewRoutingModule,
+
+    TranslocoModule
   ]
 })
 export class OverviewModule {

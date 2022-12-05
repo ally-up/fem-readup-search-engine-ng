@@ -1,0 +1,29 @@
+<ng-container *transloco="let t, read: 'pages.overview'">
+  <app-overview-toolbar class="toolbar"
+                        [searchPanelState]="searchPanelState"
+                        (menuItemEventEmitter)="onMenuItemClicked($event)"></app-overview-toolbar>
+
+  <div class="search-panel" [@searchPanelAnimation]="searchPanelState">
+    <app-search-panel [categoriesValuesMap]="categoriesValuesMap"
+                      [categoriesBackgroundColor]="categoriesBackgroundColor"
+                      [languagesValuesMap]="languagesValuesMap"
+                      [languagesBackgroundColor]="languagesBackgroundColor"
+                      [startDate]="startDate"
+                      [endDate]="endDate"
+                      (categoriesSelectedEmitter)="onCategoriesSelected($event)"
+                      (languagesSelectedEmitter)="onLanguagesSelected($event)"
+                      (startDateSelectedEmitter)="onStartDateSelected($event)"
+                      (endDateSelectedEmitter)="onEndDateSelected($event)"
+                      (pastEventsSelectedEmitter)="onPastEventsSelected($event)">
+    </app-search-panel>
+  </div>
+
+  <div class="content-overview">
+
+    <div class="events-count">{{ t("terms.events", {count: eventsMapFiltered.size}) }}</div>
+
+    <app-event-list [eventsMap]="eventsMapFiltered"
+                    (eventClickedEventEmitter)="onEventClicked($event)">
+    </app-event-list>
+  </div>
+</ng-container>

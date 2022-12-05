@@ -1,45 +1,51 @@
-<div class="content">
-  <ng-container *ngIf="categoriesValuesMap.size > 1">
-    <h4>Kategorie</h4>
-    <app-search-panel-topics [valuesMap]="categoriesValuesMap"
-                             [border]="categoriesBackgroundColor"
-                             [background]="categoriesBackgroundColor"
-                             (tagsChangedEmitter)="onCategoriesSelected($event)">
-    </app-search-panel-topics>
-  </ng-container>
-  <ng-container *ngIf="languagesValuesMap.size > 1">
-    <h4>Sprache</h4>
-    <app-search-panel-topics [valuesMap]="languagesValuesMap"
-                             [border]="languagesBackgroundColor"
-                             [background]="languagesBackgroundColor"
-                             (tagsChangedEmitter)="onLanguagesSelected($event)">
-    </app-search-panel-topics>
-  </ng-container>
-  <ng-container>
-    <h4>Zeitraum</h4>
-    <mat-form-field appearance="fill">
-      <mat-label>Gib einen Zeitraum an</mat-label>
-      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
-        <input matStartDate formControlName="start" placeholder="Start date"
-               [value]="startDate"
-               (dateChange)="onStartDateChanged($event)" (dateInput)="onStartDateChanged($event)">
-        <input matEndDate formControlName="end" placeholder="End date"
-               [value]="endDate"
-               (dateChange)="onEndDateChanged($event)" (dateInput)="onEndDateChanged($event)">
-      </mat-date-range-input>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-date-range-picker #picker></mat-date-range-picker>
+<ng-container *transloco="let t, read: 'pages.overview'">
+  <div class="content">
+    <ng-container *ngIf="categoriesValuesMap.size > 1">
+      <h4>{{ t("search.category") }}</h4>
+      <app-search-panel-topics [valuesMap]="categoriesValuesMap"
+                               [border]="categoriesBackgroundColor"
+                               [background]="categoriesBackgroundColor"
+                               (tagsChangedEmitter)="onCategoriesSelected($event)">
+      </app-search-panel-topics>
+    </ng-container>
+    <ng-container *ngIf="languagesValuesMap.size > 1">
+      <h4>{{ t("search.language") }}</h4>
+      <app-search-panel-topics [valuesMap]="languagesValuesMap"
+                               [border]="languagesBackgroundColor"
+                               [background]="languagesBackgroundColor"
+                               (tagsChangedEmitter)="onLanguagesSelected($event)">
+      </app-search-panel-topics>
+    </ng-container>
+    <ng-container>
+      <h4>{{ t("search.time-period") }}</h4>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ t("search.category") }}</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+          <input matStartDate formControlName="start" placeholder="Start date"
+                 [value]="startDate"
+                 (dateChange)="onStartDateChanged($event)" (dateInput)="onStartDateChanged($event)">
+          <input matEndDate formControlName="end" placeholder="End date"
+                 [value]="endDate"
+                 (dateChange)="onEndDateChanged($event)" (dateInput)="onEndDateChanged($event)">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
 
-      <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Ungültiges Startdatum</mat-error>
-      <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Ungültiges Enddatum</mat-error>
-    </mat-form-field>
+        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">{{ t("search.invalid-start-date") }}</mat-error>
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">{{ t("search.invalid-end-data") }}</mat-error>
+      </mat-form-field>
 
-    <button mat-flat-button class="date-button" aria-label="past events"
-            (click)="onPastEventsClicked()">vergangene Veranstaltungen</button>
-    <button mat-flat-button class="date-button" aria-label="upcoming events (7 days)"
-            (click)="onUpcomingSevenDaysClicked()">innerhalb der nächsten 7 Tage</button>
-    <button mat-flat-button class="date-button" aria-label="upcoming events 30 days"
-            (click)="onUpcomingThirtyDaysClicked()">innerhalb der nächsten 30 Tage</button>
-    <button mat-stroked-button class="date-reset-button" (click)="onTimeRangeResetClicked()">Zeitraum zurücksetzen</button>
-  </ng-container>
-</div>
+      <button mat-flat-button class="date-button" aria-label="past events"
+              (click)="onPastEventsClicked()">{{ t("search.past-events") }}
+      </button>
+      <button mat-flat-button class="date-button" aria-label="upcoming events (7 days)"
+              (click)="onUpcomingSevenDaysClicked()">{{ t("search.within-7-days") }}
+      </button>
+      <button mat-flat-button class="date-button" aria-label="upcoming events 30 days"
+              (click)="onUpcomingThirtyDaysClicked()">{{ t("search.within-30-days") }}
+      </button>
+      <button mat-stroked-button class="date-reset-button" (click)="onTimeRangeResetClicked()">{{ t("search.reset-time-period") }}
+      </button>
+    </ng-container>
+  </div>
+</ng-container>

@@ -1,8 +1,8 @@
-@use '../../../../../../node_modules/@angular/material/index' as mat;
+@use '../../../../node_modules/@angular/material/index' as mat;
 
-@import '../../../../../sizes';
-@import '../../../../../styles';
-@import '../../../../../flex';
+@import '../../../sizes';
+@import '../../../styles';
+@import '../../../flex';
 
 @include mat.core();
 

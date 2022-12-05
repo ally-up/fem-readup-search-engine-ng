@@ -1,3 +1,4 @@
+<ng-container *transloco="let t, read: 'pages.overview'">
 <mat-toolbar>
   <div class="content flexcontainer">
     <span class="toolbar-title">{{ appTitle }}</span>
@@ -8,8 +9,9 @@
     </button>
     <button mat-button class="toolbar-menu-item" aria-label="reset filters"
             [@searchResetButtonAnimation]="searchPanelState" (click)="onResetFilterClicked()">
-      <span *ngIf="media > mediaType.SMALL">FILTER ZURÜCKSETZEN</span>
+      <span *ngIf="media > mediaType.SMALL">{{ t("menu.reset-filter") | uppercase }}</span>
       <mat-icon aria-hidden="false" aria-label="filter" fontIcon="filter_list" *ngIf="media < mediaType.MEDIUM"></mat-icon>
     </button>
   </div>
 </mat-toolbar>
+</ng-container>

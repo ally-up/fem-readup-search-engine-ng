@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {DetailsRoutingModule} from './details-routing.module';
-import {DetailsComponent} from './pages/details/details.component';
+import {DetailsComponent} from './details.component';
 import {DetailsToolbarComponent} from './components/details-toolbar/details-toolbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -11,6 +11,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {ContactBottomSheetComponent} from './components/contact-bottom-sheet/contact-bottom-sheet.component';
 import {MatListModule} from '@angular/material/list';
+import {TranslocoModule} from "@ngneat/transloco";
 
 
 @NgModule({
@@ -32,7 +33,9 @@ import {MatListModule} from '@angular/material/list';
     MatChipsModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+
+    TranslocoModule
   ]
 })
 export class DetailsModule {
