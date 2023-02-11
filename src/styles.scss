@@ -68,7 +68,7 @@ body {
     color: mat.get-color-from-palette($fem-readup-red-primary, 900);
   }
 }
-.mat-card:hover {
+.mat-card:hover, mat-card:active {
   background: mat.get-color-from-palette($fem-readup-red-primary, 700);
   .mat-card-title {
     color: mat.get-color-from-palette($fem-readup-red-primary, 200);
@@ -84,7 +84,7 @@ body {
   }
 }
 
-.mat-chip:hover {
+.mat-chip:hover, mat-chip:active {
   background: mat.get-color-from-palette($fem-readup-red-primary, 700) !important;
   color: mat.get-color-from-palette($fem-readup-red-primary, 200) !important;
 }

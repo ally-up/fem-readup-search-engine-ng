@@ -27,7 +27,7 @@
   color: mat.get-color-from-palette($fem-readup-red-primary, 900);
   background: mat.get-color-from-palette($fem-readup-red-primary, 200);
 }
-.date-button:hover {
+.date-button:hover, date-button:active {
   margin: 8px;
 
   color: mat.get-color-from-palette($fem-readup-red-primary, 200);
@@ -42,7 +42,7 @@
   border-width: 2px;
 }
 
-.date-reset-button:hover {
+.date-reset-button:hover, date-reset-button:active {
   margin: 8px;
 
   color: mat.get-color-from-palette($fem-readup-red-primary, 300);
