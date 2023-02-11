@@ -15,7 +15,7 @@
         "past-events": "vergangene Veranstaltungen",
         "within-7-days": "innerhalb der nächsten 7 Tage",
         "within-30-days": "innerhalb der nächsten 30 Tage",
-        "reset-time-period": "innerhalb der nächsten 30 Tage"
+        "reset-time-period": "Zeitraum zurücksetzen"
       },
       "terms": {
         "events": "{count, plural, =0 {keine Veranstaltungen} one {1 Veranstaltung} other {# Veranstaltungen}}",

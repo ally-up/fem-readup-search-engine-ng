@@ -24,8 +24,14 @@
 .date-button {
   margin: 8px;
 
-  color: mat.get-contrast-color-from-palette($fem-readup-red-primary, 200);
+  color: mat.get-color-from-palette($fem-readup-red-primary, 900);
   background: mat.get-color-from-palette($fem-readup-red-primary, 200);
+}
+.date-button:hover {
+  margin: 8px;
+
+  color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  background: mat.get-color-from-palette($fem-readup-red-primary, 700);
 }
 
 .date-reset-button {
@@ -34,6 +40,16 @@
   color: mat.get-color-from-palette($fem-readup-red-primary, 300);
   border-color: mat.get-color-from-palette($fem-readup-red-primary, 300) !important;
   border-width: 2px;
+}
+
+.date-reset-button:hover {
+  margin: 8px;
+
+  color: mat.get-color-from-palette($fem-readup-red-primary, 300);
+  border-color: mat.get-color-from-palette($fem-readup-red-primary, 300) !important;
+  border-width: 2px;
+  background: mat.get-color-from-palette($fem-readup-red-primary, 700);
+
 }
 
 ::ng-deep .cdk-overlay-container {

@@ -55,3 +55,39 @@ body {
   opacity: 1;
   transition: opacity 2000ms;
 }
+
+.mat-card {
+  background: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  .mat-card-title {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 800);
+  }
+  .mat-card-subtitle {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 900);
+  }
+  .mat-card-content {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 900);
+  }
+}
+.mat-card:hover {
+  background: mat.get-color-from-palette($fem-readup-red-primary, 700);
+  .mat-card-title {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  }
+  .mat-card-subtitle {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  }
+  .mat-card-subtitle {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  }
+  .mat-card-content {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  }
+}
+
+.mat-chip:hover {
+  background: mat.get-color-from-palette($fem-readup-red-primary, 700) !important;
+  color: mat.get-color-from-palette($fem-readup-red-primary, 200) !important;
+}
+
+
+
