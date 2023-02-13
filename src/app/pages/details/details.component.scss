@@ -22,6 +22,8 @@
 }
 
 .content-details {
+  color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+
   @media #{$breakpoint-small} {
     margin: 20px;
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
@@ -42,15 +44,31 @@
 
 ::ng-deep .fem-readup-red-theme {
   .details-button {
-    color: mat.get-contrast-color-from-palette($fem-readup-red-primary, 200);
-    background: mat.get-color-from-palette($fem-readup-red-primary, 200);
+    color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+    background: mat.get-color-from-palette($fem-readup-red-primary, 50);
+    margin-right: 16px;
+    margin-bottom: 8px;
+  }
+
+  .details-button:hover {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 50);
+    background: mat.get-color-from-palette($fem-readup-red-primary, 500);
     margin-right: 16px;
     margin-bottom: 8px;
   }
 
   .share-button {
     color: mat.get-color-from-palette($fem-readup-red-primary, 500);
-    border-color: mat.get-color-from-palette($fem-readup-red-primary, 400) !important;
+    border-color: mat.get-color-from-palette($fem-readup-red-primary, 500) !important;
+    border-width: 2px;
+    margin-right: 16px;
+    margin-bottom: 8px;
+  }
+
+  .share-button:hover {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 50);
+    border-color: mat.get-color-from-palette($fem-readup-red-primary, 50) !important;
+    background: mat.get-color-from-palette($fem-readup-red-primary, 500);;
     border-width: 2px;
     margin-right: 16px;
     margin-bottom: 8px;
@@ -80,6 +98,8 @@
 
 ::ng-deep .content-details .mat-card-image {
   margin: 0 !important;
+  box-shadow: none !important;
+  border-radius: unset !important;
 }
 
 h1 {
@@ -87,22 +107,33 @@ h1 {
 }
 
 .subtitle {
-  color: rgba(0, 0, 0, .54);
+  color: mat.get-color-from-palette($fem-readup-red-primary, 500);
   font-size: 1.1em;
   font-weight: 400;
   margin-bottom: 32px;
+  margin-top: 15px;
 }
 
 .organizer {
-  color: rgba(0, 0, 0, 1.0);
+  color: mat.get-color-from-palette($fem-readup-red-primary, 500);
   font-size: 1.1em;
   font-weight: 400;
-  margin-bottom: 32px;
+  margin-bottom: 10px;
 }
 
-.event-basic-information, .event-tags, .event-detailed-information, .project-action {
+.event-tags, .event-detailed-information, .project-action {
+  color: black;
+  text-align: justify;
+  hyphens: auto;
   margin-top: 20px;
   margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.event-basic-information {
+  background: mat.get-color-from-palette($fem-readup-red-primary, 50);
+  padding: 15px;
+  margin-top: 0;
   line-height: 1.3;
 }
 
