@@ -24,31 +24,31 @@
 .date-button {
   margin: 8px;
 
-  color: mat.get-color-from-palette($fem-readup-red-primary, 900);
-  background: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+  background: mat.get-color-from-palette($fem-readup-red-primary, 50);
 }
 .date-button:hover, date-button:active {
   margin: 8px;
 
-  color: mat.get-color-from-palette($fem-readup-red-primary, 200);
-  background: mat.get-color-from-palette($fem-readup-red-primary, 700);
+  color: mat.get-color-from-palette($fem-readup-red-primary, 50);
+  background: mat.get-color-from-palette($fem-readup-red-primary, 500);
 }
 
 .date-reset-button {
   margin: 8px;
 
-  color: mat.get-color-from-palette($fem-readup-red-primary, 300);
-  border-color: mat.get-color-from-palette($fem-readup-red-primary, 300) !important;
+  color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+  border-color: mat.get-color-from-palette($fem-readup-red-primary, 500) !important;
   border-width: 2px;
 }
 
 .date-reset-button:hover, date-reset-button:active {
   margin: 8px;
 
-  color: mat.get-color-from-palette($fem-readup-red-primary, 300);
-  border-color: mat.get-color-from-palette($fem-readup-red-primary, 300) !important;
+  color: mat.get-color-from-palette($fem-readup-red-primary, 50);
+  border-color: mat.get-color-from-palette($fem-readup-red-primary, 50) !important;
   border-width: 2px;
-  background: mat.get-color-from-palette($fem-readup-red-primary, 700);
+  background: mat.get-color-from-palette($fem-readup-red-primary, 500);
 
 }
 

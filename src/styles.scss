@@ -57,37 +57,49 @@ body {
 }
 
 .mat-card {
-  background: mat.get-color-from-palette($fem-readup-red-primary, 200);
+  background: mat.get-color-from-palette($fem-readup-red-primary, 50);
+  box-shadow: none !important;
+  border-radius: unset;
   .mat-card-title {
-    color: mat.get-color-from-palette($fem-readup-red-primary, 800);
+    color: mat.get-color-from-palette($fem-readup-red-primary, 500);
   }
   .mat-card-subtitle {
-    color: mat.get-color-from-palette($fem-readup-red-primary, 900);
+    color: mat.get-color-from-palette($fem-readup-red-primary, 500);
   }
   .mat-card-content {
-    color: mat.get-color-from-palette($fem-readup-red-primary, 900);
+    color: mat.get-color-from-palette($fem-readup-red-primary, 500);
   }
 }
 .mat-card:hover, mat-card:active {
-  background: mat.get-color-from-palette($fem-readup-red-primary, 700);
+  background: mat.get-color-from-palette($fem-readup-red-primary, 500);
   .mat-card-title {
-    color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+    color: mat.get-color-from-palette($fem-readup-red-primary, 50);
   }
   .mat-card-subtitle {
-    color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+    color: mat.get-color-from-palette($fem-readup-red-primary, 50);
   }
   .mat-card-subtitle {
-    color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+    color: mat.get-color-from-palette($fem-readup-red-primary, 50);
   }
   .mat-card-content {
-    color: mat.get-color-from-palette($fem-readup-red-primary, 200);
+    color: mat.get-color-from-palette($fem-readup-red-primary, 50);
+  }
+  .event-category {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 50);
+    font-weight: 600;
+    margin-bottom: 12px;
   }
 }
 
-.mat-chip:hover, mat-chip:active {
-  background: mat.get-color-from-palette($fem-readup-red-primary, 700) !important;
-  color: mat.get-color-from-palette($fem-readup-red-primary, 200) !important;
+.mat-chip {
+  border-color: mat.get-color-from-palette($fem-readup-red-primary, 50) !important;
 }
+.mat-chip:hover, mat-chip:active {
+  background: mat.get-color-from-palette($fem-readup-red-primary, 500) !important;
+  color: mat.get-contrast-color-from-palette($fem-readup-red-primary, 400) !important;
+  border: mat.get-color-from-palette($fem-readup-red-primary, 500) !important;
+}
+
 
 
 
