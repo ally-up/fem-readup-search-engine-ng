@@ -23,11 +23,13 @@ jobs:
           mkdir -p ./reports
       - name: Build Angular
         run: |
+          cp src/manifest-preview.webmanifest src/manifest.webmanifest
+          cp src/index-preview.html src/index.html
           npm install
-          npm run build -- --base-href 'https://fem-readup--preview-t2lhpd7p.web.app'
+          npm run build -- --base-href "https://fem-readup-preview.web.app/"
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
-          args: hosting:channel:deploy preview
+          args: deploy --project fem-readup --only hosting:fem-readup-preview
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
