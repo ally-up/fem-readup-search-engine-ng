@@ -9,10 +9,10 @@
 }
 
 @font-face {
-  font-family: "Rubik Moonrocks";
+  font-family: "Outfit";
   font-style: normal;
   font-weight: 400;
-  src: url(https://fonts.googleapis.com/css2?family=Rubik+Moonrocks) format("truetype");
+  src: url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900') format("truetype");
   font-display: swap;
 }
 
@@ -31,7 +31,7 @@ html {
 body {
   height: 100%;
   color: mat.get-color-from-palette(mat.$grey-palette, 900);
-  font-family: 'Centra Book', sans-serif;
+  font-family: 'Outfit', sans-serif;
   margin: 0;
 
   display: flex;
@@ -60,6 +60,8 @@ body {
   background: mat.get-color-from-palette($fem-readup-red-primary, 50);
   box-shadow: none !important;
   border-radius: unset;
+  font-family: 'Outfit' !important;
+
   .mat-card-title {
     color: mat.get-color-from-palette($fem-readup-red-primary, 500);
   }
