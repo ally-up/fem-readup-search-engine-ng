@@ -6,7 +6,7 @@
 
 @include mat.core();
 
-.content-overview, .toolbar {
+.content-overview {
   @media #{$breakpoint-small} {
     margin: 20px;
     padding-bottom: 20px;
@@ -21,8 +21,32 @@
   }
 }
 
+.toolbar {
+  background-color: white;
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  margin: 0;
+  padding: 20px;
+  @media #{$breakpoint-small} {
+    padding-bottom: 20px;
+  }
+  @media #{$breakpoint-medium} {
+    padding-bottom: 40px;
+  }
+  @media #{$breakpoint-large} {
+    padding-bottom: 60px;
+  }
+}
+
 .search-panel {
   overflow: hidden;
+  position: fixed;
+  z-index: 1000;
+  background: white;
+  padding-bottom: 20px;
+  width: 100vw;
 }
 
 .events-count {
