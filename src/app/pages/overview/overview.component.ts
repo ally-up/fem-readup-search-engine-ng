@@ -13,6 +13,7 @@ import {MaterialIconService} from "../../core/ui/services/material-icon.service"
 import {HueType} from "../../core/ui/model/hue-type.enum";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {SelectableLanguage} from "../../core/event/model/selectable-language";
+import {environment} from "../../../environments/environment";
 
 /**
  * Displays overview page
@@ -139,12 +140,28 @@ export class OverviewComponent implements OnInit, OnDestroy {
   private initializeEvents(events: Event[]) {
     events.forEach(event => {
       if (event != null && event.id != null) {
+        let image = this.findImageForCategory(event)
+        if(image === undefined) {
+        image = environment.defaultImageUrl
+        }
+        event.image = image
         this.eventsMap.set(event.id, event);
       }
     });
 
     this.eventsMap = new Map(this.eventsMap);
   }
+
+
+private findImageForCategory(event: Event) : string | undefined {  
+
+for (let type of environment.category_types.keys()) {
+  if(event.category?.toLowerCase()?.includes(type.toLowerCase())) {
+    return environment.category_types.get(type) 
+  }
+}
+return environment.defaultImageUrl
+}
 
   /**
    * Initializes categories

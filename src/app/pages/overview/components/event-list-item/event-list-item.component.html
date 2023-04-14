@@ -1,10 +1,10 @@
 <ng-container *transloco="let t, read: 'pages.overview'">
   <div class="container">
     <mat-card *ngIf="event != null" class="event" [ngClass]="isInThePast(event.end_date) ? 'event-past': ''">
-      <!--    <img *ngIf="event.image_bucket !== undefined" mat-card-image [attr.data-src]="event.image_bucket"-->
-      <!--         class="event-image lazyload" alt=""/>-->
-      <!--    <img *ngIf="event.image_bucket == undefined" [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt=""/>-->
-      <img mat-card-image [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt="event image"/>
+      <img *ngIf="event.image !== undefined" mat-card-image [attr.src]="event.image"
+              class="event-image lazyload" alt=""/>
+      <img *ngIf="event.image == undefined" [attr.src]="defaultImageUrl" class="event-image lazyload" alt=""/>
+      <!-- <img mat-card-image [attr.data-src]="defaultImageUrl" class="event-image lazyload" alt="event image"/> -->
       <div *ngIf="isInThePast(event.end_date)" class="event-image-label-left">vorbei</div>
       <div *ngIf="event.category !== undefined" class="event-category">
         <span>{{event.category}}</span>
