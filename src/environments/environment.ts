@@ -12,5 +12,15 @@ export const environment = {
     storageBucket: "fem-readup.appspot.com",
     messagingSenderId: "56848903230",
     appId: "1:56848903230:web:f075e6e2668cf713ea356f"
-  }
+  },
+
+  category_types : new Map([
+    ["Gespräch", "/assets/images/humans_diskussion_2.svg"],
+    ["Diskussion", "/assets/images/humans_diskussion_2.svg"],
+    ["Online", "/assets/images/humans_online_4.svg"],
+    ["Workshop", "/assets/images/humans_workshop.svg"],
+    ["Seminar", "/assets/images/humans_workshop.svg"],
+    ["Vortrag", "/assets/images/humans_vortrag.svg"]]
+  
+  )  
 };

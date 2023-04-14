@@ -111,7 +111,23 @@ export class DetailsComponent implements OnInit, OnDestroy {
   private initializeEvent(eventsMap: Map<string, Event>) {
     if (this.id != null && eventsMap.has(<string>this.id)) {
       this.event = <Event>eventsMap.get(this.id);
+      let image = this.findImageForCategory(this.event)
+      if(image === undefined) {
+        image = environment.defaultImageUrl
+      }
+      this.event.image = image
     }
+  }
+
+
+  private findImageForCategory(event: Event) : string | undefined { 
+    
+    for (let type of environment.category_types.keys()) {
+      if(event.category?.toLowerCase()?.includes(type.toLowerCase())) {
+        return environment.category_types.get(type) 
+      }
+    }
+    return environment.defaultImageUrl
   }
 
   //
