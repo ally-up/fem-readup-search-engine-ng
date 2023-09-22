@@ -5,6 +5,7 @@ import {filter, takeUntil} from "rxjs/operators";
 import {Subject} from "rxjs";
 import {environment} from "../../../../../environments/environment";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import { Router } from '@angular/router';
 
 /**
  * Displays toolbar for overview page
@@ -75,7 +76,12 @@ export class OverviewToolbarComponent implements OnInit, OnDestroy {
    * Constructor
    * @param mediaService media service
    */
-  constructor(private mediaService: MediaService) {
+  constructor(private mediaService: MediaService,
+    private router: Router) {
+  }
+
+  onAboutClicked() {
+    this.router.navigate(['/about']);
   }
 
   //

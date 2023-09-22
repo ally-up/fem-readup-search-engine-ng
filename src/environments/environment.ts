@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  app_title: "FĒM READUP",
+  app_title: "ALLY UP",
   app_subtitle: "Veranstaltungs-Suchmaschine",
   theme: "fem-readup-red-theme",
   defaultImageUrl: "/assets/images/humans_default.svg",
@@ -17,6 +17,8 @@ export const environment = {
   category_types : new Map([
     ["Gespräch", "/assets/images/humans_diskussion_2.svg"],
     ["Diskussion", "/assets/images/humans_diskussion_2.svg"],
+    ["Talk", "/assets/images/humans_diskussion_2.svg"],
+    ["Theater", "/assets/images/humans_diskussion_2.svg"],
     ["Online", "/assets/images/humans_online_4.svg"],
     ["Workshop", "/assets/images/humans_workshop.svg"],
     ["Seminar", "/assets/images/humans_workshop.svg"],
