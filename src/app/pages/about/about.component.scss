@@ -1,0 +1,140 @@
+@use '../../../../node_modules/@angular/material/index' as mat;
+
+@import '../../../sizes';
+@import '../../../styles';
+@import '../../../flex';
+
+@include mat.core();
+
+.toolbar {
+  @media #{$breakpoint-small} {
+    margin: 20px;
+    padding-bottom: 20px;
+  }
+  @media #{$breakpoint-medium} {
+    margin: 20px;
+    padding-bottom: 40px;
+  }
+  @media #{$breakpoint-large} {
+    margin: 40px;
+    padding-bottom: 60px;
+  }
+}
+
+.content {
+    width: 100%;
+  
+    @media #{$breakpoint-small} {
+      margin: 20px;
+    }
+    @media #{$breakpoint-medium} {
+      margin: 20px;
+    }
+    @media #{$breakpoint-large} {
+      margin: 40px;
+    }
+  }
+
+.about-content {
+  color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+
+  @media #{$breakpoint-small} {
+    margin: 20px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+  }
+  @media #{$breakpoint-medium} {
+    margin: 0 auto;
+    padding: 20px;
+    width: 450px;
+  }
+  @media #{$breakpoint-large} {
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 600px;
+  }
+  
+}
+
+.lazyloaded {
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: unset !important;
+    width: 100% !important;
+    max-height: 350px;
+  }
+
+
+
+
+.about-detailed-information {
+  color: black;
+  text-align: justify;
+  hyphens: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.about-title {
+  background: mat.get-color-from-palette($fem-readup-red-primary, 50);
+  padding: 15px;
+  margin-top: 0;
+  line-height: 1.3;
+}
+
+.subtitle {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-bottom: 32px;
+    margin-top: 15px;
+  }
+
+.wrap-text {
+  white-space: normal;
+}
+
+.align-top {
+  margin-top: -4px;
+}
+
+.section-icon {
+  margin-right: 16px;
+  vertical-align: sub;
+}
+
+
+.toolbar-menu-item {
+  background: transparent;
+}
+
+::ng-deep .fem-readup-red-theme {
+  .about-toolbar-title {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 300);
+    font-family: 'Outfit';
+    font-size: 2.0rem;
+    margin-top: 2px;
+    font-weight: 800;
+    margin-right: 40px;
+
+  }
+
+  .mat-toolbar {
+    @media #{$breakpoint-small} {
+      background: transparent;
+      margin: 20px;
+    }
+    @media #{$breakpoint-medium} {
+      background: transparent;
+      margin: 20px
+    }
+    @media #{$breakpoint-large} {
+      background: transparent;
+      margin: 40px;
+    }
+  }
+}
+
+

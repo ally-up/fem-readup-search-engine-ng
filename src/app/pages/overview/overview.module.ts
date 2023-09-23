@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatNativeDateModule} from "@angular/material/core";
 import {TranslocoModule} from "@ngneat/transloco";
+import {AboutComponent} from '../about/about.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {TranslocoModule} from "@ngneat/transloco";
     EventListItemComponent,
     SearchPanelComponent,
     SearchPanelTopicsComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,
