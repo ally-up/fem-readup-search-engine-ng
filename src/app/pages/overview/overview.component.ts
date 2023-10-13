@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -290,6 +290,7 @@ return environment.defaultImageUrl
     switch (menuItem) {
       case 'filter': {
         this.searchPanelState = this.searchPanelState === 'panel-open' ? 'panel-closed' : 'panel-open';
+        window.scrollTo(0,0); 
         break;
       }
       case 'filter-reset': {
