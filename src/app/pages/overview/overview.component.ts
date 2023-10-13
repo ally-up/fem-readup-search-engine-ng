@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, ViewChild, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
@@ -42,6 +42,19 @@ import {environment} from "../../../environments/environment";
 })
 export class OverviewComponent implements OnInit, OnDestroy {
 
+  @ViewChild('contentoverview') contentOverview!: ElementRef;
+
+  @HostListener('document:scroll', ['$event']) 
+  scrollFunction() {
+    const boundingRectContentOverview = this.contentOverview.nativeElement.getBoundingClientRect();
+    const topCorner = boundingRectContentOverview.top;
+    if(topCorner <= 0.0 && this.searchPanelState === 'panel-open') {
+      this.searchPanelState = 'panel-closed';
+    }
+    
+  }
+
+  
   /** Map of events */
   public eventsMap = new Map<string, Event>();
   /** Map of filtered events */
