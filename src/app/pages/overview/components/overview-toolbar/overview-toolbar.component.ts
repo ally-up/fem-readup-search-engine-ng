@@ -84,6 +84,10 @@ export class OverviewToolbarComponent implements OnInit, OnDestroy {
     this.router.navigate(['/about']);
   }
 
+  onBookClicked() {
+    this.router.navigate(['/bookclub']);
+  }
+
   //
   // Lifecycle hooks
   //

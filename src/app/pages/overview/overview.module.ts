@@ -19,6 +19,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatNativeDateModule} from "@angular/material/core";
 import {TranslocoModule} from "@ngneat/transloco";
 import {AboutComponent} from '../about/about.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BookclubComponent } from '../bookclub/bookclub.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {AboutComponent} from '../about/about.component';
     EventListItemComponent,
     SearchPanelComponent,
     SearchPanelTopicsComponent,
-    AboutComponent
+    AboutComponent,
+    BookclubComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +50,8 @@ import {AboutComponent} from '../about/about.component';
 
     OverviewRoutingModule,
 
-    TranslocoModule
+    TranslocoModule,
+    MatExpansionModule
   ]
 })
 export class OverviewModule {
