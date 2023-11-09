@@ -246,7 +246,7 @@ DTEND${event.start_date?.toString().includes("T") ? "" : ";VALUE=DATE"}:${event.
       .replace(/-/g, "")
       .replace(/:/g, "")
     }
-UID:${event.id != undefined ? event.id : ""}@fem-readup.web.app
+UID:${event.id != undefined ? event.id : ""}@allyup.de
 DTSTAMP:${event.updated?.toString()
       .replace(".000", "")
       .replace(/-/g, "")
