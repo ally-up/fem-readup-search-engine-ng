@@ -169,4 +169,23 @@
   
 }
 
+tr {
+  text-align: left;
+  display: table-header-group;
+  color: black;
+}
+th {
+  padding-bottom: 20px;
+  padding-right: 40px;
+  color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+  border-bottom: solid;
+
+} 
+td {
+  font-family: 'Outfit';
+  padding-bottom: 10px;
+  padding-right: 40px;
+  padding-top: 15px;
+}
+
 

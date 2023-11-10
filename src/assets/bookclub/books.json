@@ -1,0 +1,85 @@
+[
+    {
+        "year": 2018,
+        "books": 
+        [
+            {"title": "Liebe Ijeawele", "author": "Chimamanda Ngozi Adichie", "month": 5, "year": 2018},
+            {"title": "Fleischmarkt", "author": "Laurie Penny", "month": 7, "year": 2018},
+            {"title": "Untenrum frei", "author": "Margarete Stokowski", "month": 11, "year": 2018}
+
+        ]
+    },
+    {
+        "year": 2019, 
+        "books": 
+        [
+            {"title": "Frauen und Macht", "author": "Mary Beard", "month": 2, "year": 2019},
+            {"title": "Unsagbare Dinge", "author": "Laurie Penny", "month": 3, "year": 2019},
+            {"title": "Wenn Männer mir die Welt erklären", "author": "Rebecca Solnit", "month": 4, "year": 2019},
+            {"title": "Ein Zimmer für sich allein", "author": "Virginia Woolf", "month": 5, "year": 2019},
+            {"title": "Warum ich keine Feministin bin", "author": "Jessa Crispin", "month": 6, "year": 2019},
+            {"title": "King Kong Theorie", "author": "Virginie Despentes", "month": 7, "year": 2019},
+            {"title": "Die Feigheit der Frauen", "author": "Bascha Mika", "month": 8, "year": 2019},
+            {"title": "Bad Feminist", "author": "Roxane Gay", "month": 9, "year": 2019},
+            {"title": "Yalla, Feminismus", "author": "Reyhan Sahin", "month": 10, "year": 2019},
+            {"title": "Feminismus für die 99%", "author": "Cinzia Arruzza, Tichi Bhattacharya, Nancy Fraser", "month": 11, "year": 2019}
+        ]
+    },
+    {
+        "year": 2020, 
+        "books": 
+        [
+            {"title": "Feministisch leben – Manifest für Spaßverderberinnen", "author": "Sara Ahmend", "month": 1, "year": 2020},
+            {"title": "Bad Behavior", "author": "Mary Gaitskill", "month": 4, "year": 2020},
+            {"title": "Unsichtbare Frauen", "author": "Caroline Criado-Perez", "month": 5, "year": 2020},
+            {"title": "Was weiße Menschen nicht über Rassismus hören wollen, aber wissen sollten", "author": "Alice Hasters", "month": 6, "year": 2020},
+            {"title": "Oh Simone", "author": "Julia Korbik", "month": 8, "year": 2020},
+            {"title": "Einführung in islamische Feminismen", "author": "Lana Sirri", "month": 9, "year": 2020},
+            {"title": "Feministisch streiten", "author": "Koschka Linkerhand", "month": 10, "year": 2020}        
+        ]
+    },
+    {
+        "year": 2021, 
+        "books": 
+        [
+            {"title": "Frauen*rechte und Frauen*hass", "author": "Autor*innenkollektiv FE.IN", "month": 1, "year": 2021},
+            {"title": "Schwarzer Feminismus – Grundlagentexte", "author": "Natasha A. Kelly", "month": 2, "year": 2021},
+            {"title": "Queenie", "author": "Candice Carty-Williams", "month": 3, "year": 2021},
+            {"title": "Anarchismus und andere Essays", "author": "Emma Goldman", "month": 5, "year": 2021},
+            {"title": "Female Choice", "author": "Meike Stoverock", "month": 6, "year": 2021},
+            {"title": "Akteneinsicht", "author": "Christina Clemm", "month": 8, "year": 2021},
+            {"title": "Sprechen und Schweigen über sexualisierte Gewalt", "author": "Lilian Schwerdtner", "month": 9, "year": 2021},
+            {"title": "Me and White Supremacy", "author": "Layla Saad", "month": 10, "year": 2021},
+            {"title": "Identitti", "author": "Mithu M. Sanyal", "month": 11, "year": 2021}
+        ]
+    },
+    {
+        "year": 2022, 
+        "books": 
+        [
+            {"title": "Radikale Zärtlichkeit", "author": "Seyda Kurt", "month": 1, "year": 2022},
+            {"title": "Mädchen, Frau, etc.", "author": "Bernardine Evaristo", "month": 2, "year": 2022},
+            {"title": "Das andere Geschlecht", "author": "Simone de Bauvoir", "month": 3, "year": 2022},
+            {"title": "Der Report der Magd", "author": "Margaret Atwood", "month": 8, "year": 2022},
+            {"title": "Sie hat Bock", "author": "Katja Lewina", "month": 10, "year": 2022},
+            {"title": "Why we matter", "author": "Emilia Roig", "month": 11, "year": 2022}
+        ]
+    },
+    {
+        "year": 2023, 
+        "books": 
+        [
+            {"title": "Alles über Liebe", "author": "bell hooks", "month": 1, "year": 2023},
+            {"title": "Die Erschöpfung der Frauen", "author": "Franziska Schutzbach", "month": 2, "year": 2023},
+            {"title": "Bewohnte Frau", "author": "Gioconda Belli", "month": 3, "year": 2023},
+            {"title": "Süß – eine feministische Kritik", "author": "Ann-Kristin Tlusty", "month": 5, "year": 2023},
+            {"title": "Gegendiagnose II", "author": "Esto Mader", "month": 6, "year": 2023},
+            {"title": "Revolution für das Leben", "author": "Eva von Redecker", "month": 7, "year": 2023},
+            {"title": "So sieht Feminismus aus", "author": "Lucy Delap", "month": 8, "year": 2023},
+            {"title": "Das Recht auf Sex – Feminismus im 21. Jahrhundert", "author": "Amia Srinivasan", "month": 10, "year": 2023}
+        ]
+    }
+    
+    
+
+]
