@@ -1,0 +1,73 @@
+<ng-container class="bookclub">
+    <ng-container *transloco="let t">
+        <mat-toolbar>
+          <div class="content flexcontainer">
+            <button mat-icon-button class="toolbar-menu-item" aria-label="back" (click)="onBackClicked()">
+              <mat-icon aria-hidden="false" aria-label="arrow left" fontIcon="arrow_back"></mat-icon>
+            </button>
+            <div class="flexbox"></div>
+            <span class="bookclub-toolbar-title">{{ t("app-title") }}</span>
+            <div class="flexbox"></div>
+            
+          </div>
+        </mat-toolbar>
+      </ng-container>
+
+<div class="bookclub-content">
+
+  <img bookclub-image class="bookclub-image lazyload" src="../../assets/images/bookclub.webp" alt="event image">
+
+
+    <div class="bookclub-title">
+    <h1>Der feministische Buchclub</h1>
+
+    </div>
+
+    <div class="bookclub-detailed-information">
+    <p>
+      Willkommen beim feministischen Buchclub!
+     </p>
+     <p> 
+      Wir treffen uns einmal im Monat um ein Buch zu besprechen, zu diskutieren und so voneinander zu lernen und einander zu inspirieren.
+      Mir ist wichtig, dass alle ihre Meinung einbringen können und sich angenommen und akzeptiert fühlen. Diskutieren ist essentiell, jedoch ohne die anderen immer von der eigenen Meinung überzeugen zu müssen.
+      Das jeweilige Buch kann natürlich gerne in jeder Sprache gelesen werden, die Gespräche werden aber vorrangig auf Deutsch stattfinden.       
+    </p>
+    <p>
+      Feel free to read the book in whatever language you want, but the discussion is mainly gonna be in German. 
+    </p>
+    <p>
+      Wir sind generell für alle Geschlechtsidentitäten offen, die Treffen finden aber in einem safer space ohne cis-Männer statt.
+      Die Treffen finden hybrid statt in Berlin und online.
+    </p>
+    <p>
+      Eure Lina 
+    </p>
+    <a mat-icon-button class="instagram-button" aria-label="open instagram" onclick="window.open('//www.instagram.com/feministischer_buchclub_berlin/')"><mat-icon svgIcon="instagram"></mat-icon></a>
+    <a mat-icon-button class="meetup-button" aria-label="open meetup" onclick="window.open('//www.meetup.com/de-DE/Feministischer-Buchclub/')"><mat-icon svgIcon="meetup2"></mat-icon></a>
+
+
+    
+
+    </div>
+    <div *ngFor="let readingList of readingLists">
+      <mat-expansion-panel >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Leseliste {{ readingList.year }}
+          </mat-panel-title>
+  
+        </mat-expansion-panel-header>
+        <tr>
+          <th>Titel</th>
+          <th>AutorIn</th>
+        </tr>
+        <tr *ngFor="let book of readingList.books">
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+        </tr>
+      </mat-expansion-panel>
+    </div>
+    
+</div>
+
+</ng-container>
