@@ -6,10 +6,6 @@
 
 @include mat.core();
 
-.body {
-  overflow-x: hidden;
-}
-
 .toolbar {
   @media #{$breakpoint-small} {
     margin: 20px;
