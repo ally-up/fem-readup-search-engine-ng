@@ -22,7 +22,7 @@
 }
 
 .content {
-    width: 100%;
+    width: -webkit-fill-available;;
   
     @media #{$breakpoint-small} {
       margin: 20px;
@@ -61,7 +61,7 @@
     margin: 0 !important;
     box-shadow: none !important;
     border-radius: unset !important;
-    width: 100% !important;
+    width: -webkit-fill-available !important;
     max-height: 350px;
   }
 
