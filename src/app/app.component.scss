@@ -16,3 +16,19 @@
     background: white;
   }
 }
+
+.footer {
+  .impressum-button:hover {
+    color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+
+  }
+  .impressum-button {
+    text-decoration: none;
+    color: black ;
+  }
+  
+  color: black  !important;
+  text-align: center;
+  padding: 20px;
+
+}
