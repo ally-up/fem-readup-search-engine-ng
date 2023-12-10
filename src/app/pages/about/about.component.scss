@@ -54,6 +54,31 @@
     padding-bottom: 20px;
     width: 600px;
   }
+  .footer {
+    .footer-title {
+      color: black;
+    }
+    background: mat.get-color-from-palette($fem-readup-red-primary, 50);
+    padding: 20px;
+    color: gray;
+  
+  }
+  .mat-expansion-panel {
+    background: mat.get-color-from-palette($fem-readup-red-primary, 50);
+
+    box-shadow: none !important;
+    font-family: 'Outfit' !important;
+    text-align: justify;
+
+    color: grey;
+    border-width: 0px;
+    border-style: none;
+    margin-bottom: 10px;
+    .mat-content {
+      font-family: 'Outfit' !important;
+      color: grey;
+    }
+  }
   
 }
 
