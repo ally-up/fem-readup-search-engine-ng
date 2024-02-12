@@ -5,6 +5,10 @@
 @import '../styles';
 @import '../sizes';
 
+.body {
+  overflow-x: hidden;
+}
+
 .fem-readup-red-theme {
   @media #{$breakpoint-small} {
     background: white;
@@ -26,7 +30,7 @@
     text-decoration: none;
     color: black ;
   }
-  
+
   color: black  !important;
   text-align: center;
   padding: 20px;
