@@ -5,9 +5,6 @@
 @import '../styles';
 @import '../sizes';
 
-.body {
-  overflow-x: hidden;
-}
 
 .fem-readup-red-theme {
   @media #{$breakpoint-small} {
