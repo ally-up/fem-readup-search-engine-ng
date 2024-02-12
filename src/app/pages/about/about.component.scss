@@ -151,6 +151,7 @@
   }
 
   .mat-toolbar {
+    width: -webkit-fill-available;;
     @media #{$breakpoint-small} {
       background: transparent;
       margin: 20px;
