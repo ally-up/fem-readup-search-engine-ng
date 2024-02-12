@@ -6,6 +6,10 @@
 
 @include mat.core();
 
+.body {
+  overflow-x: hidden !important;
+}
+
 .toolbar {
 
   @media #{$breakpoint-small} {
@@ -24,7 +28,7 @@
 
 .content {
     width: 100%;
-  
+
     @media #{$breakpoint-small} {
       margin: 20px;
     }
@@ -55,7 +59,7 @@
     padding-bottom: 20px;
     width: 600px;
   }
-  
+
 }
 
 .lazyloaded {
@@ -123,6 +127,7 @@
   }
 
   .mat-toolbar {
+    width: -webkit-fill-available;;
 
     @media #{$breakpoint-small} {
       background: transparent;
@@ -159,14 +164,14 @@
       margin-right: 16px;
       margin-bottom: 8px;
     }
-  
+
     .instagram-button:hover, .meetup-button:hover {
       color: mat.get-color-from-palette($fem-readup-red-primary, 50);
       background: mat.get-color-from-palette($fem-readup-red-primary, 500);
       margin-right: 16px;
       margin-bottom: 8px;
     }
-  
+
 }
 
 tr {
@@ -180,7 +185,7 @@ th {
   color: mat.get-color-from-palette($fem-readup-red-primary, 500);
   border-bottom: solid;
 
-} 
+}
 td {
   font-family: 'Outfit';
   padding-bottom: 10px;
