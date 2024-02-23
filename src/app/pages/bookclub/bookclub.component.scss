@@ -154,6 +154,15 @@
     .mat-content {
       font-family: 'Outfit' !important;
       color: mat.get-color-from-palette($fem-readup-red-primary, 500);
+      //padding: 10px;
+    }
+    .mat-expansion-panel-header {
+      padding-left: 12px;
+    }
+    .mat-expansion-panel-body {
+      padding-left: 12px;
+      padding-right: 12px;
+
     }
   }
 
@@ -181,7 +190,7 @@ tr {
 }
 th {
   padding-bottom: 20px;
-  padding-right: 40px;
+  //padding-right: 40px;
   color: mat.get-color-from-palette($fem-readup-red-primary, 500);
   border-bottom: solid;
 
@@ -189,7 +198,7 @@ th {
 td {
   font-family: 'Outfit';
   padding-bottom: 10px;
-  padding-right: 40px;
+  //padding-right: 40px;
   padding-top: 15px;
 }
 
