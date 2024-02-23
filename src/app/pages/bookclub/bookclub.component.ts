@@ -9,7 +9,7 @@ import booksJson from 'src/assets/bookclub/books.json';
 interface Book {
   title: String;
   author: String;
-  month: Number;
+  month: number;
   year: Number;
 }
 
@@ -32,6 +32,8 @@ export class BookclubComponent implements OnInit {
   appTitle = environment.app_title;
   panelOpenState = false;
   readingLists: ReadingListYear[] = booksJson;
+
+  months = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
 
 
   constructor(private router: Router, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, ) {
