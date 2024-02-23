@@ -42,7 +42,7 @@
         "year": 2021, 
         "books": 
         [
-            {"title": "Frauen*rechte und Frauen*hass", "author": "Autor*innenkollektiv FE.IN", "month": 1, "year": 2021},
+            {"title": "Frauen*rechte und Frauen*hass", "author": "Autor* innenkollektiv FE.IN", "month": 1, "year": 2021},
             {"title": "Schwarzer Feminismus – Grundlagentexte", "author": "Natasha A. Kelly", "month": 2, "year": 2021},
             {"title": "Queenie", "author": "Candice Carty-Williams", "month": 3, "year": 2021},
             {"title": "Anarchismus und andere Essays", "author": "Emma Goldman", "month": 5, "year": 2021},
@@ -76,7 +76,22 @@
             {"title": "Gegendiagnose II", "author": "Esto Mader", "month": 6, "year": 2023},
             {"title": "Revolution für das Leben", "author": "Eva von Redecker", "month": 7, "year": 2023},
             {"title": "So sieht Feminismus aus", "author": "Lucy Delap", "month": 8, "year": 2023},
-            {"title": "Das Recht auf Sex – Feminismus im 21. Jahrhundert", "author": "Amia Srinivasan", "month": 10, "year": 2023}
+            {"title": "Das Recht auf Sex – Feminismus im 21. Jahrhundert", "author": "Amia Srinivasan", "month": 10, "year": 2023},
+            {"title": "Aufzeichnungen eines Krokodils", "author": "Qiu Miaojin", "month": 11, "year": 2023}
+
+        ]
+    },
+    {
+        "year": 2024, 
+        "books": 
+        [
+            {"title": "Unlearn Patriarchy", "author": "Madeleine Alizadeh, Teresa Bücker, Kübra Gümüşay, Emilia Roig, Kristina Lunz u.v.a.", "month": 1, "year": 2024},
+            {"title": "I’m every woman", "author": "Liv Strömquist", "month": 3, "year": 2024},
+            {"title": "Riot, don’t diet!", "author": "Elisabeth Lechner", "month": 4, "year": 2024},
+            {"title": "Girlhood", "author": "Melissa Febos", "month": 5, "year": 2024},
+            {"title": "Blues in schwarz weiss", "author": "May Ayim", "month": 6, "year": 2024},
+            {"title": "Die linke Hand der Dunkelheit", "author": "Ursula K. Le Guin", "month": 9, "year": 2024},
+            {"title": "Blutbuch", "author": "Kim de L'Horizon", "month": 11, "year": 2024}
         ]
     }
     
