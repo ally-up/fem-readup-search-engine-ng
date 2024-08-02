@@ -8,7 +8,7 @@
     <img src="./logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h1 align="center">Fem Readup Search Engine</h1>
+  <h1 align="center">Ally up Search Engine</h1>
 
   <p align="center">
     Curated search engine for feminist events and media
